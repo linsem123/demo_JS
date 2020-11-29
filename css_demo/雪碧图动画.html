@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="id=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>雪碧图练习</title>
+    <style>
+      *{margin: 0;padding: 0;}
+html,body {
+    width: 100%;
+    height: 100%;
+}
+ .footer {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     background: url("https://xyq.res.netease.com/pc/gw/20170118103441/img/ft_e43a6db.webp") 0 0 no-repeat;
+     overflow: hidden: /*形成BFC盒模型，保证.wrap的margin在.footer内移动*/
+ }
+ .wrap {
+     width: 780px;
+     margin: 320px auto 0; /*未设置overflow: hidden;，保证在图片调整位置时的溢出仍能显示*/
+ }
+ .pic {
+     float: left;
+ }
+ .pic1 {
+     width: 200px;
+     height: 180px;
+     background: url("https://xyq.res.netease.com/pc/gw/20170118103441/img/west_01_3ca39fe.png") 0 0 no-repeat;
+ }
+ .pic2 {
+     width: 200px;
+     height: 180px;
+     background: url("https://xyq.res.netease.com/pc/gw/20170118103441/img/west_02_47bad19.png") 0 0 no-repeat;
+ }
+ .pic3 {
+     width: 170px;
+     height: 240px;
+     background: url("https://xyq.res.netease.com/pc/gw/20170118103441/img/west_03_f962447.png") 0 0 no-repeat;
+     margin-top: -30px;
+ }
+ .pic4 {
+     width: 210px;
+     height: 200px;
+     background: url("https://xyq.res.netease.com/pc/gw/20170118103441/img/west_04_6516d80.png") 0 0 no-repeat;
+ }
+ 
+ /*动画*/
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 114.2857% 0;
+    }
+}
+
+.move {
+    -webkit-animation: move 1.4s steps(8) infinite;
+    -o-animation: move 1.4s steps(8) infinite;
+    animation: move 1.4s steps(8) infinite;
+}
+    </style>
+</head>
+<body>
+    <div class="footer">
+        <div class="wrap">
+            <div class="pic pic1 move"></div>
+            <div class="pic pic2 move "></div>
+            <div class="pic pic3 move"></div>
+            <div class="pic pic4 move"></div>
+        </div>
+    </div>
+</body>
+</html>

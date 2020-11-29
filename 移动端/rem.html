@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>rem</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<style type="text/css">
+		html{
+			font-size: 50px;
+		}
+		.wrap{
+			width:2.6rem;
+			height: 1rem;
+			background: red
+		}
+	</style>
+	<script type="text/javascript">
+		
+		(function(){
+			setRem();
+			//横竖屏切换
+			window.addEventListener('orientation' in window?'deviceorientation':'resize',setRem);
+			function setRem(){
+				var html = document.documentElement;
+				var hWidth = html.getBoundingClientRect().width;
+				html.style.fontSize = hWidth/15 +"px"
+			}
+			
+		})()
+		/*假设有一个设计图宽度750px，分成15份每份50px，结合less设置变量 @r：50rem ,那么假设一个宽度为100px width：100/@r*/
+	</script>
+</head>
+<body>
+	<section class="wrap"></section>
+</body>
+</html>

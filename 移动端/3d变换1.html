@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3d变换1</title>
+	<meta name="viewport" content="width=device-width,user-scale=no"/>
+	<style type="text/css">
+		body{
+			perspective: 400px;
+		}
+		#box {
+			border: 1px solid #eee;
+			width: 100px;
+			height: 100px;
+			margin:200px;
+			position: relative;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			-webkit-transition: 3s;
+			transition: 3s;
+		}
+		#box div{
+			position:absolute;
+			left: 0;
+			top: 0;
+			width :100px;
+			height: 100px;
+			font-size:18px;
+			line-height: 100px;
+			text-align: center;
+			color: white;
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		#box div:nth-of-type(1){
+			background: yellow;
+
+		}
+		#box div:nth-of-type(2){
+			background: red;
+			-webkit-transform: rotateY(180deg);
+			transform: rotateY(180deg);
+		}
+		#box div span{
+			transform: translateZ(20px);
+			-webkit-transform: translateZ(20px);
+		}	
+
+	</style>
+	<script type="text/javascript">		
+		document.addEventListener('touchstart',function(e){
+			e.preventDefault();
+		});
+		window.onload = function(){
+			var box = document.querySelector("#box");
+			box.addEventListener('click',function(){
+				box.style.WebkitTansform = box.style.transform ="rotateY(360deg)";
+			})
+		}
+	</script>
+</head>
+<body>
+	<div id="box">
+		<div><span>derek</span></div>
+		<div><span>emma</span></div>
+	</div>
+</body>
+</html>

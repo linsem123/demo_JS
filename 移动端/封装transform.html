@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>封装</title>
+	<style type="text/css">
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ccc;
+			padding: 50px;
+		}
+		#div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			-webkit-transition: 2s;
+			transition: 2s;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="div"></div>
+	</div>
+	<script type="text/javascript">
+		function cssTransform(el, attr, val){
+			/*el.transform={
+				rotate,
+				scale*100,
+				skew,
+				translate
+			}*/
+			if(!el.transform){
+				el.transform = {};
+			}
+			if(typeof val === "undefined"){
+				var val = el.transform[attr];
+				if(typeof el.transform[attr] === "undefined"){
+					switch(attr){
+						case 'scale':
+						case 'scaleX':
+						case 'scaleX':
+						case 'scaleZ':
+							 el.transform[attr] = 100;
+							 break;
+						default:
+							el.transform[attr] = 0;
+					}
+
+				}
+				return el.transform[attr];
+			}else{
+				el.transform[attr] = val;
+				
+				var transformVal = "";
+				for(let i in el.transform){
+					switch(i){
+						case 'scale':
+						case 'scaleX':
+						case 'scaleX':
+						case 'scaleZ':
+							transformVal +=" "+i +"("+el.transform[i]/100+")";
+							break;
+						case 'rotate':
+						case 'rotateX':
+						case 'rotateY':
+						case 'rotateZ':
+						case 'skewX':
+						case 'skewY':
+							transformVal +=" "+i +"("+el.transform[i]+"deg)";
+							break;
+						case 'translate':
+						case 'translateX':
+						case 'translateY':
+						case 'translateZ':
+							transformVal +=" "+i +"("+el.transform[i]+"px)";
+							break;
+					}
+				}
+				el.style.WebkitTransform = el.style.transform = transformVal;
+			}
+		}
+		window.onload = function(){
+			var div = document.querySelector("#div");
+			div.addEventListener('click',function(e){
+				//获取
+				// var deg = cssTransform(this,"rotate");
+				// deg+=30;
+				//设置
+				cssTransform(this,"rotate",720);
+				cssTransform(this,"scale",0);
+			})
+
+		}	
+	</script>
+</body>
+</html>

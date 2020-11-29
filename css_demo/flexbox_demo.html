@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>flex box</title>
+</head>
+<body>
+	<div class="box">
+		<div class="child_one"></div>
+		<div class="child_two"></div>
+		<div class="child_three"></div>
+	</div>
+	<style type="text/css">
+		.box{
+			display: flex;
+			/*flex-direction: column-reverse;*/
+			/*justify-content: flex-end;
+			align-items: flex-end;*/
+			height: 500px;
+		}
+		.child_one{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			/*flex-shrink: 1;默认值：1,值为0，不缩放*/
+			flex-grow: 0;/*默认值：0,宽度始终为设置宽度，1-按比例占满剩余空间*/
+			/*flex-basis: 50px*/
+			flex: none;
+			/*none-空间不管够不够分配宽度不变；(0 0 auto)auto-根据空间自动缩放(1 1 auto)；1-默认占满剩余空间(0 1 auto)*/
+		}
+		.child_two{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*flex-grow: 3;*/
+		}
+		.child_three{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			/*flex-grow: 1;*/
+		}
+	</style>
+</body>
+</html>

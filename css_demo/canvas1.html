@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>convas</title>
+	<style type="text/css">
+		body{
+			background: black;
+		}
+		canvas{
+			background: white;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		convas 画布默认宽*高 300*150 标签设置宽高
+	 -->
+	<canvas id="box" width="500px" height="500px"></canvas>
+	<script>
+		var box = document.getElementById('box');
+		var con = box.getContext('2d'); //绘图对象
+		/*
+		//fill 填充 stroke线 rect矩形 lineCao端点
+		//绘制方块
+		con.save();
+		con.fillStyle = "red"; //填充颜色
+		con.lineWidth = "5"; //线的宽度
+		con.strokeStyle = "yellow"; //线的颜色
+		con.lineJoin = "round"; //圆角
+		con.fillRect(0,0,20,20);
+		con.strokeRect(30,0,20,20); //边框
+		con.restore()
+
+		//绘制路径
+		 con.beginPath();//开始绘制
+		 con.moveTo(50,50); //一条线的起点
+		 con.lineTo(70,70); //一条线的终点
+		 con.lineTo(70,90);
+		 con.closePath(); //闭合
+		 con.stroke(); //绘制线
+		 con.fill(); //填充
+		 con.clearRect(); //清除画布
+		 */
+		 //绘制圆
+		 con.arc(100,100,40,0,Math.PI);	//0:90° 0.5*Math.PI：180° Math.PI：270°... 
+		 con.lineTo(140,100);
+		 con.stroke();
+		 
+
+
+
+
+	</script>
+</body>
+</html>

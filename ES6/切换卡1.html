@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>...扩展运算+forEach实现切换卡</title> 
+	<style type="text/css">
+		input.active{
+			background: red;
+		}
+
+		.outNode>div{width: 200px;height: 200px;background: #ccc;display: none;}
+		.outNode>div:first-of-type{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript">
+		 const mes={
+		 	"name":["zhangsan","lisi","wanglaowu"],
+		 	"value":["11","12","13"]
+		 };
+		 var content=json=>`<div class=outNode>
+		 ${json.name.map( (x) => `<input type=button value=${x}>` ).join('')}
+		 ${json.value.map( (x) => `<div>${x}</div>` ).join('')}
+		 </div>`
+
+		 document.body.innerHTML = content(mes);
+		 console.log(content(mes))
+		 const $=obj=>[...document.querySelectorAll(obj)]
+		 let inputValue = $('input');
+		 let divValue = $('.outNode>div');
+		 //let inputValue=new Set($('input'));
+		 //let divValue=new Set($('.outNode>div'));
+		 console.log(inputValue);
+		 [...inputValue][0].className='active';
+		 [...inputValue].forEach((x,y)=>{
+		 	x['onclick']=()=>{
+		 		[...inputValue].forEach((z)=>z.className='');
+		 		x.className = 'active';	 		
+		 		[...divValue].forEach((f)=>{f.style.display='none'});
+		 		[...divValue][y].style.display='block'
+		 	}
+		 })
+
+	</script>
+</body>
+</html>

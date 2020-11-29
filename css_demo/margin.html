@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="out_box">
+		x
+		<div class="box1"></div>
+		<div class="box2"></div>
+	</div>
+	<style type="text/css">
+		.out_box{
+			/*overflow: hidden;*/
+			/*font-size: 0px;*/
+		}
+		/*两个div的margin重叠*/
+		.box1{
+			width: 100px;
+			height: 100px;
+			margin-bottom: 20px;
+			background: red;
+			position: absolute;
+			/*display: inline-block;*/
+			/*float: left;*/
+		}
+		.box2{
+			width: 200px;
+			height: 100px;
+			margin-top: 10px;
+			background: yellow;d
+			position: absolute;
+			/*display: inline-block;*/
+			/*clear: both;*/
+			/*float: left;*/
+		}
+	</style>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>导航条</title>
+	<link rel="stylesheet" type="text/css" href="./CSS/bootstrap.css">
+	<script type="text/javascript" src="./js/jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="#" class="navbar-brand">Logo</a>
+			</div>
+			<form class="navbar-form navbar-left">
+				<div class="input-group">
+					<input type="text" class="form-conrtol">
+					<span class="input-group-addon">搜索</span>
+				</div>				
+			</form>
+			<ul class="nav navbar-nav navbar-left">
+				<li class="active"><a href="#">首页</a></li>
+				<li><a href="#">话题</a></li>
+				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">首页<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">one</a></li>
+						<li><a href="#">two</a></li>
+					</ul>
+				</li>
+			</ul>			
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#">注册</a></li>
+				<li><a href="#">登录</a></li>
+			</ul>
+			<button class="btn navbar-btn navbar-right">提问</button>
+		</div>
+	</nav>
+	
+</body>
+</html>
