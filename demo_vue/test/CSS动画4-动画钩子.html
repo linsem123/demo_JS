@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS动画4-动画钩子</title>
+	<script src="../js/vue.js"></script>
+	<script src="../js/velocity.js"></script>
+	<style>
+		.fade-enter, .fade-leave-to{
+			opacity:0;
+		}
+		.ade-enter-active, .fade-leave-active{
+			transition:opacity 2s;
+		}
+	</style>
+</head>
+<body>
+	<div id='root'>
+		<transition 
+		name="fade" 
+		@before-enter="handelBeforeEnter"
+		@enter="handelEnter"
+		@after-enter="handelAfterEnter"
+		> 
+			<h2 v-if="show">hello</h2>
+		</transition>
+		<button @click="handelClick">toggle</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:'#root',
+			data:{
+				show:true
+			},
+			methods:{
+				handelClick:function(){
+					this.show=!this.show
+				},
+				//before-enter动画执行前，enter在before-enter执行完执行,done执行完执行after-enter
+				handelBeforeEnter:function(el){
+					//el.style.color='red';
+					el.style.opacuty=0;
+				},
+				handelEnter:function(el,done){
+					// setTimeout(()=>{
+					// 	el.style.color='green';
+					// },2000);
+					// setTimeout(()=>{						
+					// 	done();//表示动画enter执行完了
+					// },4000);
+					Velocity(el,{opacity:1},{duration:1000,compete:done})
+					
+				},
+				handelAfterEnter:function(el){
+					el.style.color='#eee';
+				}
+
+
+			}
+		})
+	</script>
+</body>
+</html>

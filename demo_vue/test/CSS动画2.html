@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS动画2</title>
+	<script src="../js/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="../js/Animate.css"/>
+<!-- 	<style>
+	@keyframes bounce-in{
+		0%{
+			transform:scale(0);
+		}
+		50%{
+			transform:scale(1.5);
+		}
+		100%{
+			transform:scale(1);
+		}
+	}
+		.active{
+			transform-origin: left center;
+			animation: bounce-in 1s;
+		}
+		.leave{
+			transform-origin: left center;
+			animation: bounce-in 1s reverse;
+		}
+	</style> -->
+</head>
+<body>
+	<div id='root'>
+		<transition name="fade" enter-active-class="animated swing" leave-active-class="animated shake"> 
+			<h2 v-if="show">hello</h2>
+		</transition>
+		<button @click="handelClick">toggle</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:'#root',
+			data:{
+				show:true
+			},
+			methods:{
+				handelClick:function(){
+					this.show=!this.show
+				}
+			}
+		})
+	</script>
+</body>
+</html>

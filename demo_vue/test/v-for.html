@@ -1,0 +1,52 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 的列表渲染</title>
+	<script src="../js/vue.js"></script>
+
+</head>
+<body>
+	<div id="app">
+		<template v-for="(item,index) in list"
+			    :key="item.id">
+		
+			<div>
+				{{item.text}}---{{index}}
+			</div>
+			<span>
+			{{item.text}}
+		</span>
+		</template>
+		<div v-for="(item,key,index) of userInfo"
+			    :key="item.id">
+			{{item}}--{{key}}--{{index}}
+		</div>
+		
+	</div>
+	<script>
+		//vue里操作数组 pop push shift unshift splice sort reverse
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				list:[{
+					id:"001",
+					text:"hello"
+				},{
+					id:"002",
+					text:"dell"
+				},{
+					id:"003",
+					text:"lee"
+				}],
+				userInfo:{
+					name:"dell",
+					age:"28",
+					date:"2018-1-2",
+					sex:"man"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

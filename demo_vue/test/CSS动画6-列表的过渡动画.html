@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS动画6-列表的过渡动画</title>
+	<script src="../js/vue.js"></script>
+	<style>
+		.fade-enter, .fade-leave-to{
+			opacity:0;
+		}
+		.fade-enter-active, .fade-leave-active{
+			transition:opacity 2s;
+		}
+	</style>
+</head>
+<body>
+	<div id='root'>
+		<transition-group name="fade" mode="out-in"> 
+			<div v-for="item of list" :key="item.id">{{item.title}}</div>
+		</transition-group>
+		<button @click="handelClick">Add</button>
+	</div>
+	<script>
+		var count=0;
+		var vm = new Vue({
+			el:'#root',
+			data:{
+				list:[]
+			},
+			methods:{
+				handelClick:function(){
+					this.list.push({
+						id:count++,
+						title:'hello'
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

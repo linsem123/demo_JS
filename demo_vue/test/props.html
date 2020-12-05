@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组件参数校验与非props特性</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+	<div id='root'>
+		<child content="hell"></child>
+	</div>
+</body>
+<script>
+	Vue.component('child',{
+		props:{
+			//content:[Number,String]
+			content:{
+				type:String,
+				//required:false,//content 必传
+				//default:'default value' //content 可传可不传，不传就展示默认值default value
+				// validator: function(value){//校验长度大于5
+				// 	return (value.length>5)
+				// }
+			}
+		},
+		template:'<div>{{content}}</div>'
+	})
+	var em = new Vue({
+		el:'#root'
+	})
+</script>
+
+</html>

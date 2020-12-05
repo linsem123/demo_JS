@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	  {{message}}
+
+	</div>
+	<script>
+		
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				message:'123'
+			}
+		})
+		vm.$data.message = 'Hello';
+		Vue.nextTick(function () {
+		  // DOM 更新了
+		  alert(1);
+		})
+
+	</script>
+</body>
+</html>

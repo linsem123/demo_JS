@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="../js/vue.js"></script>
+	<title>组件里的细节</title>
+</head>
+<body>
+	<div id="root">
+		<table>
+			<tbody>
+				<tr is = "row"></tr>
+				<tr is = "row"></tr>
+				<tr is = "row"></tr>
+			</tbody>
+		</table>
+		<conter ref="one" @change="handleChange"></conter>
+		<conter ref="two" @change="handleChange"></conter>
+		<div>{{total}}</div>
+
+	</div>
+	<script>
+		Vue.component("row",{
+			data:function(){
+				return{
+					content:"this ia a row"
+				}
+			},
+			template:'<tr><td>{{content}}</td></tr>'
+		})
+		Vue.component("conter",{
+			data:function(){
+				return{
+					count:0
+				}
+			},
+			template:'<div @click="handleClick" >{{count}}</dic>',
+			methods:{
+				handleClick:function(){
+					this.count++;
+					this.$emit('change');//子组件像外触发change事件
+				}
+			}
+		})
+		 var vm = new Vue({
+		 	el:"#root",
+		 	data:{
+		 		total:0
+		 	},
+		 	methods:{
+		 		handleChange:function(){
+		 			this.total=this.$refs.one.count+this.$refs.two.count;
+		 		}
+		 	}
+		 })
+	</script>
+</body>
+</html>

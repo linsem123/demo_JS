@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	  {{ message | a }}
+	</div>
+	<script>
+		
+		var vm = new Vue({
+			el:'#app',
+			data:{
+				message:[1,2,3,4]
+			},
+			filters:{
+				a:function(val){
+					val = val .slice(0,2);
+					return val;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

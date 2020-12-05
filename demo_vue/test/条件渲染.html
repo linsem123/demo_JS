@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue 的条件渲染</title>
+	<script src="../js/vue.js"></script>
+
+</head>
+<body>
+	<div id="app">
+		<div v-if="show" @click="handleShow">
+			用户名：<input type="" name="" key="userName"/>
+		</div>
+		<div v-else @click="handleShow">
+			游戏名：<input type="" name="" key="gameName"/>
+		</div>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				show:false
+			},
+			methods:{
+				handleShow:function(){
+					this.show=this.show===false?true:false;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

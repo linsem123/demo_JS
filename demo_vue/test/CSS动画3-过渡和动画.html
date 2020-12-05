@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS动画3-过渡和动画</title>
+	<script src="../js/vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="../js/Animate.css"/>
+	<style>
+		.fade-enter, .fade-leave-to{
+			opacity:0;
+		}
+		.ade-enter-active, .fade-leave-active{
+			transition:opacity 2s;
+		}
+	</style>
+</head>
+<body>
+	<div id='root'>
+		<transition 
+		type="transition"
+		name="fade" 
+		appear
+		enter-active-class="animated swing fade-enter-active" 
+		leave-active-class="animated shake fade-leave-active"
+		appear-active-class="animated swing"> 
+			<h2 v-if="show">hello</h2>
+		</transition>
+		<button @click="handelClick">toggle</button>
+	</div>
+	<script>
+		var vm = new Vue({
+			el:'#root',
+			data:{
+				show:true
+			},
+			methods:{
+				handelClick:function(){
+					this.show=!this.show
+				}
+			}
+		})
+	</script>
+</body>
+</html>
