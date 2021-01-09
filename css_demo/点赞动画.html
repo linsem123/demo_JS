@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body{
+            --heart-color: #bdc3c7;
+            --heart-active-color: red;
+            --bg-color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+      
+       .love-icon{
+        position: relative;
+        width: 30px;
+        height:30px;
+       }
+       .heart_box{
+            position: absolute;
+           background: var(--heart-color);
+           transform: rotate(45deg);
+           width: 100%;
+           height: 100%;
+           cursor: pointer;
+           display: inline-block;
+       }
+       input{
+           position: absolute;
+           opacity: 0;
+       }
+       input:checked ~ *{
+         --heart-color:var(--heart-active-color)
+       }
+       input:checked ~ .heart_box{
+           animation: heartJump 1.2s ease-out reverse;
+           /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+       }
+       input:checked ~ .ring{
+           background-color: var(--heart-active-color);
+           animation: scale-out-bigger 0.75s cubic-bezier(0, 1, 0.5, 1) forwards;
+       }
+       input:checked ~ .ring::before{
+           animation: scale-out 0.75s cubic-bezier(0, 1, 0.5, 1) forwards;
+       }
+        input:checked ~ .lines>.line::before{
+           animation: line-action 0.4s ease-in forwards;
+       }
+       .heart_box::after,.heart_box::before{
+           position: absolute;
+           content: '';
+           display: inline-block;
+            background: var(--heart-color);
+            width: 30px;
+            height:30px;
+            border-radius: 15px;
+       }
+       .heart_box::before{
+        transform: translateX(-50%)
+       }
+       .heart_box::after{
+        transform: translateY(-50%);
+       }
+       .lines{
+            position: absolute;
+            top: 4px;
+            z-index: 1;
+            width: 30px;
+            height: 30px;
+            pointer-events: none;
+       }
+       .line{
+           --rotate_deg:calc(var(--line_num)*60deg + 30deg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            transform: rotate(var(--rotate_deg)) translate(65px);
+            opacity: 0.6;
+        }
+        .line::before{
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: left;
+            transform: scaleX(0);
+            background: var(--heart-color);
+        }
+        .ring{
+            position: relative;
+            z-index: -1;
+            top: -60%;
+            left: -46%;
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        .ring::before{
+            content:'';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            border-radius: 50%;
+            transform: scale(0);
+        }
+       @keyframes heartJump {
+        0% {
+            transform: rotate(45deg) scale(1);
+        }
+
+        4% {
+            transform: rotate(45deg) scale(1);
+        }
+
+        8% {
+            transform: rotate(45deg) scale(1);
+        }
+
+        14% {
+            transform: rotate(45deg) scale(1);
+        }
+
+        18% {
+            transform: rotate(45deg) scale(1);
+        }
+
+        26% {
+            transform: rotate(45deg) scale(1.01);
+        }
+
+        28% {
+            transform: rotate(45deg) scale(1.01);
+        }
+
+        40% {
+            transform: rotate(45deg) scale(0.98);
+        }
+
+        42% {
+            transform: rotate(45deg) scale(0.98);
+        }
+
+        56% {
+            transform: rotate(45deg) scale(1.05);
+        }
+
+        58% {
+            transform: rotate(45deg) scale(1.04);
+        }
+
+        72% {
+            transform: rotate(45deg) scale(0.87);
+        }
+
+        86% {
+            transform: rotate(45deg) scale(1.37);
+        }
+
+        100% {
+            transform: rotate(45deg) scale(0);
+        }
+       }
+       @keyframes scale-out {
+            to {
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes scale-out-bigger {
+            to {
+                transform: scale(1.5);
+            }
+        }
+        @keyframes line-action {
+            50% {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+            50.1% {
+                transform-origin: right;
+            }
+
+            100% {
+                transform-origin: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="love-icon">
+        <input type="checkbox" id="like-toggle" />
+        <label for="like-toggle" class="heart_box"> </label>
+        <div class="lines">
+          <div class="line" style="--line_num:1"></div>
+          <div class="line" style="--line_num:2"></div>
+          <div class="line" style="--line_num:3"></div>
+          <div class="line" style="--line_num:4"></div>
+          <div class="line" style="--line_num:5"></div>
+          <div class="line" style="--line_num:6"></div>
+        </div>
+        <div class="ring"></div>
+    </div>
+</body>
+</html>
