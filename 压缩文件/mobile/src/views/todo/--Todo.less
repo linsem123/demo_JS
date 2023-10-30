@@ -1,0 +1,175 @@
+@import "~@/assets/less/variable.less";
+
+.todo-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+
+  .goods-info-wrap {
+    padding:0.4rem 0.24rem;
+    box-sizing: border-box;
+    background: #ffffff;
+
+    .goods-info {
+      margin-top:0.2rem;
+      padding:0.8rem 0.24rem;
+      box-sizing: border-box;
+      box-shadow: 0px 1px 5px rgba(0,0,0,0.15);
+      border-radius: 0.1rem;
+      .error {
+        color:@red;
+        padding-left:0.6rem;
+      }
+      .goods-info-inner {
+        margin-top:0.24rem;
+        display: flex;
+        justify-content: space-between;
+        .goods-info-select {
+          // width:0.4rem;
+          display: flex;
+          align-items: center;
+        }
+        .goods-info-body {
+          position: relative;
+          margin-left:0.2rem;
+          display: flex;
+          .goods-info-img-wrap {
+            width: 2rem;
+            flex-shrink: 0;
+            .goods-info-img {
+              display: block;
+              width:100%;
+              box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+            }
+          }
+          .goods-info-body-right {
+            padding-left:0.2rem;
+            width: 4rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .goods-info-title {
+              font-size:0.26rem;
+              font-weight:normal;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;  //这里是在第二行有省略号
+              overflow: hidden;
+              word-break: break-all;
+              word-wrap: break-word;
+            }
+            .goods-info-limit {
+              display: inline-block;
+              font-size:0.24rem;
+              line-height: 0.28rem;
+              border:1px solid @red;
+              color:@red;
+              width: 1rem;
+              text-align: center;
+              margin-top:0.1rem;
+            }
+            .goods-info-price-wrap {
+              margin-top:0.1rem;
+              display: flex;
+              justify-content: space-between;
+              .goods-info-price {
+                font-size:0.3rem;
+                color:@red;
+              }
+              .goods-info-amount-number-wrap {
+                display: flex;
+                align-items: center;
+                .subtract-btn,.add-btn {
+                  color:#949494;
+                  font-size:0.32rem;
+                  // line-height: 0.4rem;
+                  margin:0 0.1rem;
+                }
+                .goods-info-amount-number {
+                  border:none;
+                  background:#f8f8f8;
+                  width:0.78rem;
+                  height:0.45rem;
+                  text-align:center;
+                  font-size:0.28rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .zhanwei {
+    height:2rem;
+  }
+  .wrapper {
+    text-align: center;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+}
+
+.checkstand-wrapper {
+  width: 100%;
+  position: absolute;
+  bottom:1.1rem;
+  background:#ffffff;
+  z-index:1000;
+  padding:0.3rem 0.24rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  border-top:1px solid @border-color;
+  .select-all {
+    display: flex;
+    align-items: center;
+    .select-all-text {
+      margin-left:0.1rem;
+      font-size:0.26rem;
+    }
+  }
+}
+
+.bottom-wrap {
+  position: absolute;
+  z-index:20;
+  bottom:0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #ffffff;
+  align-items: center;
+  .bottom-btn {
+    width:33.3%;
+    font-size:0.3rem;
+    color:#ffffff;
+    background:@red;
+    text-align:center;
+    height:1.1rem;
+    line-height:1.1rem;
+    font-size:0.34rem;
+    position: relative;
+    &.yellow {
+      background:@yellow;
+    }
+    &.red {
+      background:@red;
+    }
+    &.blue {
+      background:@blue;
+    }
+    &.disable {
+      background:@red-disable;
+    }
+    span {
+      position: absolute;
+      top:0.06rem;
+      right:0.06rem;
+      font-size:0.32rem;
+    }
+  }
+}

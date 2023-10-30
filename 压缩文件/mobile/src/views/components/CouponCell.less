@@ -1,0 +1,145 @@
+@import "~@/assets/less/variable.less";
+.coupon-cell {
+  min-height: 2.16rem;
+  display: flex;
+  justify-content: space-between;
+  background:#ffffff;
+  position: relative;
+  border-top-left-radius: 0.1rem;
+  border-bottom-left-radius: 0.1rem;
+  .coupon-type-icon {
+    position: absolute;
+    font-size: 1.8rem;
+    color:#cccccc;
+    top: 0;
+    right: 0.1rem;
+  }
+  &:before {
+    content: "";
+    display: block;
+    width: 0.34rem;
+    height: 0.34rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -0.17rem;
+    margin-left: -0.17rem;
+    background: @base-bg-color;
+    border-radius: 50%;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 0.34rem;
+    height: 0.34rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -0.17rem;
+    margin-right: -0.17rem;
+    background: @base-bg-color;
+    border-radius: 50%;
+  }
+  &.disable {
+    .coupon-left {
+      background:@base-gray-color;
+    }
+  }
+  .coupon-left {
+    width: 2.24rem;
+    text-align: center;
+    background:@orange;
+    color:#ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 0.1rem;
+    border-bottom-left-radius: 0.1rem;
+    background: -webkit-linear-gradient(180deg, #7ac4ff , #3995ff); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(180deg, #7ac4ff, #3995ff); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(180deg, #7ac4ff, #3995ff); /* Firefox 3.6 - 15 */
+    background: linear-gradient(180deg, #7ac4ff , #3995ff); /* 标准的语法 */
+    &.color-0 {
+      background: -webkit-linear-gradient(180deg, #ff8352 , #fb513b); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(180deg, #ff8352, #fb513b); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(180deg, #ff8352, #fb513b); /* Firefox 3.6 - 15 */
+      background: linear-gradient(180deg, #ff8352 , #fb513b); /* 标准的语法 */
+    }
+    &.color-1 {
+      background: -webkit-linear-gradient(180deg, #ffd75e , #febf01); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(180deg, #ffd75e, #febf01); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(180deg, #ffd75e, #febf01); /* Firefox 3.6 - 15 */
+      background: linear-gradient(180deg, #ffd75e , #febf01); /* 标准的语法 */
+    }
+    &.color-2 {
+      background: -webkit-linear-gradient(180deg, #d9b076 , #bf8e48); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(180deg, #d9b076, #bf8e48); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(180deg, #d9b076, #bf8e48); /* Firefox 3.6 - 15 */
+      background: linear-gradient(180deg, #d9b076 , #bf8e48); /* 标准的语法 */
+    }
+    .coupon-domain {
+      .symbol {
+        font-size:0.28rem;
+        font-weight:bold;
+        margin-right:0.08rem;
+        // color:#ffffff;
+      }
+      font-size: 0.72rem;
+      font-weight:bold;
+      // color:#ffffff;
+    }
+    .coupon-min-amount {
+      font-size:0.26rem;
+      font-weight: bold;
+    }
+  }
+  .coupon-content {
+    padding:0.3rem;
+    box-sizing:border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 3.46rem;
+    .coupon-title {
+      font-size:0.36rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      word-break: break-all;
+      word-wrap: break-word;
+    }
+    .coupon-label {
+      margin-top:0.2rem;
+      font-size:0.28rem;
+      line-height: 0.28rem;
+    }
+    .coupon-time {
+      font-size: 0.24rem;
+      line-height: 0.24rem;
+      color:@font-gray-color;
+    }
+    // .coupon-extra {
+    //   font-size: 0.26rem;
+    //   line-height: 0.5rem;
+    // }
+    
+  }
+  .coupon-use {
+    width: 0.96rem;
+    border-left: 1px dashed @border-color;
+    writing-mode: vertical-lr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .coupon-operate {
+      font-size: 0.28rem;
+      text-align: center;
+      .use-me {
+        color:@red;
+        letter-spacing: 4px;
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@import "~@/assets/less/variable.less";
+.balance-title {
+  background:#ffffff;
+  border:none;
+  text-align: center;
+  text-align-last: center;
+}
+.my-balance-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+  background:#ffffff;
+
+  .balance-list-wrap {
+    padding:0 0.3rem;
+    .balance-cell {
+      border-bottom:1px solid @border-color;
+      padding:0.3rem 0;
+      .balance-cell-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          font-size:0.3rem;
+        }
+        .time {
+          font-size:0.24rem;
+          color:@font-gray-color;
+        }
+      }
+      .balance-cell-amount {
+        display: flex;
+        margin-top:0.1rem;
+        justify-content:space-between;
+        align-items: center;
+        .status {
+          font-size:0.3rem;
+        }
+        .amount {
+          font-size:0.3rem;
+        }
+      }
+    }
+  }
+
+
+
+  .zhanwei {
+    height:1.2rem;
+  }
+  .tip {
+    text-align: center;
+    color:@font-gray-color;
+    margin-top: 0.5rem;
+  }
+
+}

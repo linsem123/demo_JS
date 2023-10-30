@@ -1,0 +1,179 @@
+@import "~@/assets/less/variable.less";
+
+.gen-order-withdraw {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+
+  .adress-info-wrap {
+    margin:0.25rem 0.2rem;
+    box-sizing: border-box;
+    .adress-info-inner {
+      background:#ffffff;
+      padding:0.3rem 0.2rem;
+      position: relative;
+      .adress-info-head {
+        .name {
+          font-size:0.34rem;
+          font-weight:bold;
+        }
+        .phone {
+          font-size:0.34rem;
+          margin-left:0.4rem;
+          font-weight:bold;
+          &.danger {
+            color:@red;
+            font-size:0.28rem;
+            font-weight:normal;
+          }
+        }
+      }
+      .adress {
+        margin-top:0.3rem;
+        margin-right:0.15rem;
+        font-size:0.26rem;
+      }
+      .iconfont {
+        position:absolute;
+        right: 0.15rem;
+        top:50%;
+        font-size:0.52rem;
+        margin-top:-0.26rem;
+      }
+    }
+  }
+
+  .buy-info-wrap {
+    margin:0.25rem 0.2rem;
+    padding-bottom:0.4rem;
+    background:#ffffff;
+    .cart-goods-selected-list {
+      box-sizing: border-box;
+      padding-bottom:0.5rem;
+      .cart-goods-selected-cell {
+        padding:0.3rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        // border-bottom:1px solid @border-color;
+        .goods-info-img-wrap {
+          width:1.54rem;
+          .goods-info-img {
+            width: 100%;
+            display: block;
+          }
+        }
+        .goods-info {
+          width:4.6rem;
+          .goods-info-title {
+            font-size:0.3rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;  //这里是在第二行有省略号
+            overflow: hidden;
+            word-break: break-all;
+            word-wrap: break-word;
+            font-weight:normal;
+          }
+          .goods-info-price-wrap {
+            margin-top:0.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .goods-info-price {
+              font-size:0.32rem;
+              color:@red;
+            }
+            .goods-info-number {
+              font-size:0.28rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sum-info-wrap {
+    margin:0.25rem 0.2rem;
+    background:#ffffff;
+    padding:0.3rem 0;
+  }
+
+
+  .config-wrap {
+    padding:0.1rem 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    .config-title {
+      font-size:0.28rem;
+    }
+    .config-info {
+      display: flex;
+      align-items: center;
+      .red {
+        color:@red;
+        font-size:0.3rem;
+        margin-left:0.1rem;
+      }
+      .iconfont {
+        color:@yellow;
+        font-size:0.3rem;
+        margin-left:0.1rem;
+        &.red {
+          color:@red;
+        }
+        &.gray {
+          color:@base-gray-color;
+        }
+      }
+      .config-text {
+        font-size:0.26rem;
+        text-align: right;
+        &.gray {
+          color:@base-gray-color;
+        }
+      }
+    }
+  }
+
+  .zhanwei {
+    height:1.2rem;
+  }
+
+  .wrapper {
+    text-align: center;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+}
+
+.pay-wrap {
+  position: absolute;
+  z-index:20;
+  bottom:0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #ffffff;
+  border-top:1px solid @border-color;
+  align-items: center;
+  .total-price {
+    font-size:0.48rem;
+    // color:@red;
+    padding-left:0.3rem;
+  }
+  .pay-btn {
+    font-size:0.36rem;
+    font-weight: bold;
+    color:#ffffff;
+    background:@font-color-yellow;
+    text-align:center;
+    width:3.08rem;
+    height:1.1rem;
+    line-height:1.1rem;
+    &.disable {
+      background:@red-disable;
+    }
+  }
+}

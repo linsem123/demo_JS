@@ -1,0 +1,49 @@
+@import "~@/assets/less/variable.less";
+.my-interest-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+  background:#ffffff;
+
+  .interest-list-wrap {
+    .interest-cell {
+      padding:0.25rem;
+      border-bottom:1px solid @border-color;
+      .interest-cell-title {
+        display: flex;
+        justify-content: space-between;
+        .title {
+          font-size:0.3rem;
+        }
+        .time {
+          font-size:0.24rem;
+          color:@font-gray-color;
+        }
+      }
+      .interest-cell-amount {
+        display: flex;
+        margin-top:0.1rem;
+        justify-content:space-between;
+        .remain {
+          font-size:0.24rem;
+        }
+        .amount {
+          font-size:0.32rem;
+        }
+      }
+    }
+  }
+
+
+
+  .zhanwei {
+    height:1.2rem;
+  }
+  .tip {
+    text-align: center;
+    color:@font-gray-color;
+    margin-top: 0.5rem;
+  }
+
+}

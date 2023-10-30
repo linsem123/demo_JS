@@ -1,0 +1,225 @@
+@import "~@/assets/less/variable.less";
+.mall-mine {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+  
+  .user-info-wrap {
+    padding:0.3rem 0.24rem;
+    background:#ffffff;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    .user-info-left {
+      display: flex;
+      align-items: center;
+      .user-img {
+        width:0.8rem;
+        height:0.8rem;
+        // background:@yellow;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .phone {
+        display: inline-block;
+        margin-left:0.2rem;
+        font-size:0.3rem;
+      }
+    }
+    .sys-set {
+      font-size:0.3rem;
+      .iconfont {
+        font-size:0.46rem;
+      }
+    }
+  }
+
+  .user-account-info {
+    padding:0 0.24rem;
+    background:#ffffff;
+    .user-account-info-inner {
+      background:#f6c345;
+      border-radius: 0.1rem;
+      padding:0.4rem;
+      box-sizing: border-box;
+       position: relative;
+      .user-account-info-line {
+        display: flex;
+        align-items: center;
+        margin-bottom:0.32rem;
+        &:last-child {
+          margin-bottom:0;
+        }
+        .line-title {
+          font-size:0.28rem;
+          line-height: 0.28rem;
+          font-weight:bold;
+        }
+        .line-price {
+          font-size:0.48rem;
+          line-height: 0.48rem;
+          font-weight:bold;
+        }
+        .line-text {
+          font-size:0.24rem;
+          line-height: 0.24rem;
+          font-weight:bold;
+        }
+        .iconfont {
+          font-size:0.3rem;
+          margin-left:0.2rem;
+        }
+      }
+      .more {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top:0.3rem;
+        // width: 1.14rem;
+        padding:0.12rem 0.12rem 0.12rem 0.28rem;
+        background: #ff9910;
+        box-sizing: border-box;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        color:#ffffff;
+        .more-text {
+          font-size:0.24rem;
+          line-height: 0.24rem;
+          font-weight:bold;
+        }
+        .iconfont {
+          margin-left:0.04rem;
+          font-size: 0.2rem;
+          font-weight:bold;
+        }
+      }
+    }
+  }
+
+  .nav-wrap {
+    padding:0.36rem 0.24rem;
+    background:#ffffff;
+    display: flex;
+    justify-content: space-around;
+    .nav-cell {
+      text-align:center;
+      .iconfont {
+        font-size:0.58rem;
+        position: relative;
+        .nav-cell-number {
+          position: absolute;
+          -webkit-text-fill-color: #ffffff;
+          text-fill-color: #ffffff;
+          font-style:normal;
+          width: 0.32rem;
+          height:0.32rem;
+          display: block;
+          background:@red;
+          color:#ffffff;
+          font-size:0.24rem;
+          text-align:center;
+          line-height:0.32rem;
+          border-radius: 50%;
+          top:-0.16rem;
+          right:-0.08rem;
+        }
+        &.icon-daiban {
+          background: -webkit-linear-gradient(-29deg, #fd8155 , #f7a145); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(-29deg, #fd8155, #f7a145); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(-29deg, #fd8155, #f7a145); /* Firefox 3.6 - 15 */
+          background: linear-gradient(-29deg, #fd8155 , #f7a145); /* 标准的语法 */
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+        }
+        &.icon-dingdan {
+          background: -webkit-linear-gradient(-29deg, #f5a100,#fae17c); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(-29deg,#f5a100, #fae17c); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(-29deg,#f5a100, #fae17c); /* Firefox 3.6 - 15 */
+          background: linear-gradient(-29deg, #f5a100,#fae17c); /* 标准的语法 */
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+        }
+        &.icon-pingjia {
+          background: -webkit-linear-gradient(-29deg, #4794fc,#96beff); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(-29deg,#4794fc, #96beff); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(-29deg,#4794fc, #96beff); /* Firefox 3.6 - 15 */
+          background: linear-gradient(-29deg, #4794fc,#96beff); /* 标准的语法 */
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+        }
+        &.icon-shoucangjia {
+          background: -webkit-linear-gradient(-29deg, #6b83ff,#ac96ff); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(-29deg,#6b83ff, #ac96ff); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(-29deg,#6b83ff, #ac96ff); /* Firefox 3.6 - 15 */
+          background: linear-gradient(-29deg, #6b83ff,#ac96ff); /* 标准的语法 */
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          text-fill-color: transparent;
+        }
+      }
+      .nav-cell-name {
+        margin-top:0.2rem;
+        font-size:0.28rem;
+        line-height: 0.28rem;
+        font-weight:bold;
+      }
+    }
+  }
+
+  .option-wrap {
+    padding:0 0.32rem;
+    background:#ffffff;
+    margin-top:0.16rem;
+    .option-cell {
+      height:1.2rem;
+      background:#ffffff;
+      display: flex;
+      align-items: center;
+      .option-name {
+        font-size:0.3rem;
+        line-height: 0.3rem;
+        display: flex;
+        justify-content: space-between;
+        height:1.2rem;
+        border-bottom:1px solid @border-color;
+        flex:1;
+        align-items: center;
+        &:last-child {
+          border-bottom:none;
+        }
+        i {
+          font-style:normal;
+          &:first-child {
+            flex:1;
+          }
+          &:nth-child(2) {
+            color:@font-gray-color;
+          }
+        }
+      }
+      .iconfont {
+        font-size:0.4rem;
+        &.iconfont-title {
+          margin-right:0.2rem
+        }
+      }
+      .icon-more {
+        font-size:0.28rem;
+        color:@font-gray-color;
+        margin-left:0.3rem;
+      }
+    }
+  }
+
+  .zhanwei {
+    height:1.2rem;
+  }
+}

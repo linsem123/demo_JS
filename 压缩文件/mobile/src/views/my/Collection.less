@@ -1,0 +1,132 @@
+@import "~@/assets/less/variable.less";
+.collection-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+  
+  .collection-content {
+    margin-top:0.16rem;
+    .result-wrap {
+      background:#ffffff;
+      .result-list-wrap {
+        padding:0 0.24rem;
+        .result-list {
+          .result-cell {
+            padding:0.24rem 0;
+            border-bottom:1px solid @border-color;
+            display: flex;
+            justify-content: space-between;
+            &:last-child {
+              border-bottom:none;
+            }
+            .result-cell-img-wrap {
+              width: 2.1rem;
+              height: 2.1rem;
+              background:#eeeeee;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+              .result-cell-img {
+                display: block;
+                width: 100%;
+                height:100%;
+                &[lazy=loading] {
+                 //  width: 1rem;
+                  // height: 1rem;
+                  // color:@yellow;
+                }
+              }
+            }
+            .result-cell-info-wrap {
+              width: 4.7rem;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              margin-left:0.2rem;
+              .result-cell-info-title {
+                font-size:0.3rem;
+                overflow:hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                word-wrap: break-word;
+              }
+              .result-cell-info-tag {
+                display: flex;
+                flex-wrap: wrap;
+                .tag-cell {
+                  display: block;
+                  font-size:0.24rem;
+                  color:@font-color-yellow;
+                  height:0.34rem;
+                  padding:0 0.14rem;
+                  border:1px solid @font-color-yellow;
+                  border-radius: 0.2rem;
+                  margin:0.1rem 0.15rem 0 0;
+                }
+              }
+              .result-cell-info-price {
+                display: flex;
+                margin-top:10px;
+                align-items: baseline;
+                .price {
+                  font-size:0.34rem;
+                  color:@font-color-yellow;
+                }
+                .collect-num {
+                  font-size:0.24rem;
+                  color:@font-gray-color;
+                  margin-left:0.4rem;
+                  flex: 1;
+                }
+                .gouwuche {
+                  background:@font-color-yellow;
+                  border-radius:50%;
+                  width: 0.5rem;
+                  height:0.5rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  .iconfont {
+                    font-size:0.3rem;
+                    color:#ffffff;
+                  }
+                }
+                .number-wrap {
+                  .iconfont {
+                    font-size:0.36rem;
+                  }
+                  .amount-number {
+                    font-size:0.28rem;
+                    width:0.56rem;
+                    height:0.36rem;
+                    line-height: 0.36rem;
+                    border:none;
+                    text-align:center;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .click-more {
+    font-size:0.26rem;
+    text-align: center;
+    height:20px;
+    line-height:20px;
+    margin:20px 0;
+    color:#ccc;
+  }
+
+  .zhanwei {
+    height:1.2rem;
+  }
+}

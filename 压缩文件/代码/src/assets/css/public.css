@@ -1,0 +1,48 @@
+@charset "utf-8";
+/* 全局样式*/
+body, div, dl, dt, dd, ul, ol, li,h1, h2, h3, h4, h5, h6, pre,span,img, code,form, fieldset, legend, input, button,textarea, p, blockquote, th, td,figure{margin:0;padding:0}
+
+li{list-style-type:none;}
+a{text-decoration:none;}
+
+body{font:12px  "宋体"; word-wrap:break-word;}
+a,u,s,del{text-decoration:none} 
+fieldset,a img,.bor0 {border:0;outline:0;}
+i,em,b,th{font-style:normal;font-weight:100;}
+mark{background:none;}
+
+table{border-collapse:collapse;border-spacing:0;}/*合并表格边框（细线边框）*/
+input{outline:none;}
+
+
+
+img{vertical-align:middle;} /*图片居中显示*/
+.valign:after{content:"";display:inline-block;width:0;height:100%;vertical-align:middle;}
+
+.cflex{display:flex;justify-content:space-between;align-items:center;}/*弹性盒子垂直居中*/
+.ccenter{position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;}
+
+.clear{zoom:1;}/*清除浮动*/
+.clear:before{content:"";display:table;}
+.clear:after{content:"";display:block;clear:both;visibility:hidden;}
+
+.over{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}/*一行显示省略号*/
+input[type="number"]{-webkit-user-select:text;}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none!important;margin:0;}
+button,input[type="button"]{cursor:pointer;border:0 none;}
+a,button,input,img{-webkit-touch-callout:none;}  /* 1.ios 长按时不触发系统的菜单 2.禁止长按时下载图片 */
+/* 去除android4.0以下 a/button/input标签被点击时产生的边框 因为边框引起了不少bug */
+a,button,input{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+/* Android4.0下不识别选择器-webkit-transform-3d 使用它可做Android4.0下版本兼容 */
+@media all and (-webkit-transform-3d){a,button,input{-webkit-tap-highlight-color:rgba(130,130,130,0);}/* android4.0+ ios4+ 恢复按钮被点击时产生的效果 */}
+
+
+html,body,#app,#container{width:100%;height:100%;padding:0;margin:0;font-family: PingFangSC-Regular;position: relative;background:#fff;}
+.show{display: block;}
+.hide{display: none;}
+/* ElementUI */
+@import url(./jquery-weui.min.css);
+@import url(./weui.min.css);
+.weui-dialog__ft .weui-dialog__btn{color:#0060F1;}
+.el-icon-loading2{background: url('../images/idupdate/loading.png');width: 0.32rem;height: 0.32rem;animation: rotating 2s linear infinite;}
+.border_bot{border-bottom:0.01rem solid #C1C7D3;}

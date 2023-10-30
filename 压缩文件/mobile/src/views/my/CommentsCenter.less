@@ -1,0 +1,94 @@
+@import "~@/assets/less/variable.less";
+.comment-wrap{
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+  
+  .order-list-wrap {
+    
+    .order-list {
+      .order-list-cell {
+        margin-top:0.16rem;
+        background:#ffffff;
+        padding:0 0.28rem;
+        .order-list-goods-wrap {
+          .order-list-goods-cell {
+            padding:0.3rem 0;
+            display: flex;
+            border-bottom:1px solid @border-color;
+            img {
+              width: 1.3rem;
+              height:1.3rem;
+              display: block;
+              box-shadow: 0px 0px 5px -1px rgba(0,0,0,0.2);
+            }
+            .goods-info {
+              flex:1;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              margin-left:0.3rem;
+              .goods-title {
+                font-size: 0.28rem;
+                overflow: hidden;
+                display: -webkit-box;
+                text-overflow: ellipsis;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                word-break: break-all;
+                word-wrap: break-word;
+                font-weight: normal;
+              }
+              .goods-number {
+                font-size: 0.28rem;
+                text-align:right;
+              }
+            }
+          }
+        }
+        .summary-wrap {
+          padding:0.3rem 0;
+          .info-line {
+            display: flex;
+            justify-content: flex-end;
+            span {
+              font-size:0.24rem;
+              line-height:0.24rem;
+              color:@font-gray-color;
+              margin-left:0.3rem;
+              i {
+                font-style:normal;
+                color:@font-color-yellow;
+              }
+            }
+          }
+          .btn-line {
+            margin-top:0.24rem;
+            display: flex;
+            justify-content: flex-end;
+            .btn {
+              display: inline-block;
+              text-align: center;
+              width: 1.8rem;
+              height: 0.6rem;
+              line-height: 0.6rem;
+              margin-left: 0.3rem;
+              color: @font-color-yellow;
+              border: 1px solid @font-color-yellow;
+              border-radius: 0.4rem;
+              &.yellow-color {
+                background-color: @font-color-yellow;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .zhanwei {
+    height:1.2rem;
+  }
+}

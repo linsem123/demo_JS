@@ -1,0 +1,209 @@
+@import "~@/assets/less/variable.less";
+.content {
+  min-height: 100vh;
+  margin-top:1rem;
+  width: 100vw;
+  height:100vh;
+  overflow:auto;
+
+  img{
+    display:block;
+    margin:0 auto;
+    width:100%;
+  }
+  .dynamic-content {
+    position: relative;
+    padding:0.8rem 0.18rem 1.5rem 0.18rem;
+    background: -webkit-linear-gradient(top, #f9aa5a , #ffc08d); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top, #f9aa5a, #ffc08d); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(top, #f9aa5a, #ffc08d); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom, #f9aa5a , #ffc08d); /* 标准的语法 */
+    
+    .invite-btn {
+      font-size:0.4rem;
+      color:#ffffff;
+      width: 6.5rem;
+      height:1.1rem;
+      border-radius: 0.5rem;
+      text-align:center;
+      line-height:1.1rem;
+      font-weight:bold;
+      position: absolute;
+      top:-0.55rem;
+      left: 50%;
+      margin-left:-3.24rem;
+      background: -webkit-linear-gradient(176deg, #fe9d5d , #fc5548); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(176deg, #fe9d5d, #fc5548); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(176deg, #fe9d5d, #fc5548); /* Firefox 3.6 - 15 */
+      background: linear-gradient(176deg, #fe9d5d , #fc5548); /* 标准的语法 */
+    }
+    .roll-data-wrap {
+      width: 7.12rem;
+      height:4.12rem;
+      margin:0 auto;
+      background:url("~@/assets/images/invitation/roll-back.png");
+      background-size: cover;
+      box-sizing: border-box;
+      padding:1rem 0.9rem 0 0.9rem;
+
+      .roll-data-inner {
+        height:1.5rem;
+        overflow: hidden;
+        .anim{
+          transition: all 2s;
+          margin-top: -0.5rem;
+          transition-timing-function: linear;
+        }
+        .roll-data {
+          // height:1.5rem;
+          // overflow: hidden;
+          // animation: myMove 20s linear infinite;
+          // animation-fill-mode: forwards;
+
+          .roll-data-cell {
+            height:0.5rem;
+            line-height:0.5rem;
+            display: flex;
+            justify-content: space-between;
+          }
+        }
+      }
+      .roll-data-btn-wrap {
+        margin-top:0.15rem;
+        display: flex;
+        justify-content: space-between;
+        .roll-data-btn {
+          width: 2.32rem;
+          height:0.54rem;
+          line-height: 0.54rem;
+          text-align:center;
+          color:#ffffff;
+          font-weight:bold;
+          border-radius: 0.08rem;
+          background: -webkit-linear-gradient(top, #fa934c , #fd8155); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(top, #fa934c, #fd8155); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(top, #fa934c, #fd8155); /* Firefox 3.6 - 15 */
+          background: linear-gradient(to bottom, #fa934c , #fd8155); /* 标准的语法 */
+        }
+      }
+    }
+    .text-wrap {
+      h4 {
+        margin-top:0.3rem;
+        font-size:0.24rem;
+        color:#ffffff;
+      }
+      p {
+        font-size:0.24rem;
+        color:#ffffff;
+        font-weight:bold;
+      }
+    }
+  }
+
+
+  .zhanwei {
+    height:1.2rem;
+  }
+}
+
+@keyframes myMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-150px);
+  }
+}
+
+
+.pop-modal {
+  background: transparent;
+  height:7rem;
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+  }
+  .content {
+    margin: 0 auto;
+    padding:0.5rem 0.5rem;
+    box-sizing: border-box;
+    background: #ffffff;
+    position: relative;
+    z-index: 10;
+    width: 6.6rem;
+    height:7rem;
+    min-height:auto;
+
+    .invite-head-wrap {
+      table {
+        width: 100%;
+        thead {
+          th {
+            font-size:0.32rem;
+            color:#ff9551;
+            font-weight: bold;
+            text-align: center;
+            &:first-child {
+              text-align: left;
+              width: 1.8rem;
+            }
+            &:last-child {
+              text-align: right;
+              width: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+
+
+    .invite-body-wrap {
+      height: 5.5rem;
+      overflow-y: auto;
+      table {
+        width: 100%;
+        tbody {
+          tr {
+            td {
+              font-size:0.28rem;
+              text-align: center;
+              &:first-child {
+                text-align: left;
+                width: 1.8rem;
+              }
+              &:last-child {
+                text-align: right;
+                width: 1.2rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .nothing-wrap {
+      margin-top:1.4rem;
+      text-align: center;
+      .nothing-img {
+        width: 3rem;
+      }
+      .nothing-text {
+        margin-top:0.5rem;
+        font-size:0.3rem;
+      }
+    }
+
+    .iconfont {
+      position: absolute;
+      right: 0.2rem;
+      top: 0.1rem;
+      font-size:0.4rem;
+      color:#929292;
+    }
+  }
+}

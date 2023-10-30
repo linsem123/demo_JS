@@ -1,0 +1,163 @@
+[{
+	"bcode": "ABC",
+	"bid": 0,
+	"bname": "中国农业银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "ZSYH",
+	"bid": 0,
+	"bname": "浙商银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "CBHB",
+	"bid": 0,
+	"bname": "渤海银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "CCB",
+	"bid": 0,
+	"bname": "中国建设银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "CMB",
+	"bid": 0,
+	"bname": "招商银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "CP",
+	"bid": 0,
+	"bname": "中信银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "FIB",
+	"bid": 0,
+	"bname": "兴业银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "GDFZ",
+	"bid": 0,
+	"bname": "广发银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "HXYH",
+	"bid": 0,
+	"bname": "华夏银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "Hzbank",
+	"bid": 0,
+	"bname": "杭州银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "ICBC",
+	"bid": 0,
+	"bname": "中国工商银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "JCCB",
+	"bid": 0,
+	"bname": "晋城市商业银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "JSYH",
+	"bid": 0,
+	"bname": "江苏银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "JTYH",
+	"bid": 0,
+	"bname": "交通银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "MS",
+	"bid": 0,
+	"bname": "民生银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "NBCB",
+	"bid": 0,
+	"bname": "宁波银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "NJCB",
+	"bid": 0,
+	"bname": "南京银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "PINGAN",
+	"bid": 0,
+	"bname": "平安银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "POST",
+	"bid": 0,
+	"bname": "邮储银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "SHRBC",
+	"bid": 0,
+	"bname": "上海农村商业银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "SHYH",
+	"bid": 0,
+	"bname": "上海银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "SPDB",
+	"bid": 0,
+	"bname": "浦东发展银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "UCCB",
+	"bid": 0,
+	"bname": "乌鲁木齐市商业银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "WZCB",
+	"bid": 0,
+	"bname": "温州银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "ZGGDYH",
+	"bid": 0,
+	"bname": "中国光大银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "ZGYH",
+	"bid": 0,
+	"bname": "中国银行",
+	"did": 0,
+	"order": 0
+}, {
+	"bcode": "BCCB",
+	"bid": 0,
+	"bname": "北京银行",
+	"did": 0,
+	"order": 0
+}]

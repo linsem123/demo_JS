@@ -1,0 +1,90 @@
+@import "~@/assets/less/variable.less";
+
+.mall-payment-type {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  background: #ffffff;
+  // position: absolute;
+
+  .tip-wrap {
+    background:#ffe8e7;
+    padding:0 0.24rem;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    height:0.8rem;
+    .tip-text {
+      font-size:0.28rem;
+    }
+    .total-price {
+      font-size:0.3rem;
+      color:@red;
+    }
+  }
+
+  .pay-list-wrap {
+    padding: 0 0.32rem;
+    position: relative;
+    background: #ffffff;
+    .pay-list {
+      background:#ffffff;
+      .pay-list-cell {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:0.4rem 0;
+        border-bottom:1px solid @border-color;
+        .pay-name {
+          display: flex;
+          align-items: center;
+          .pay-icon {
+            font-size: 0.44rem;
+          }
+          .pay-text-wrap {
+            margin-left:0.24rem;
+            .pay-name-text {
+              font-size: 0.3rem;
+            }
+            .pay-text {
+              font-size: 0.3rem;
+              // color:@font-gray-color;
+            }
+          }
+          
+        }
+        .icon-confirm {
+          font-size: 0.44rem;
+          color: #d8d8d8;
+        }
+        .icon-confirmfill {
+          font-size: 0.44rem;
+          &.active {
+            color: #0076ff;
+          }
+        }
+      }
+    }
+  }
+
+  .btn-wrap {
+    text-align: center;
+    width: 100%;
+    margin-top:1.1rem;
+    .bottom-btn {
+      display: inline-block;
+      width: 6.68rem;
+      height: 1rem;
+      text-align: center;
+      line-height: 1rem;
+      background: @font-color-yellow;
+      color: #ffffff;
+      font-size: 0.36rem;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      &.disable {
+        background: @yellow-disable;
+      }
+    }
+  }
+}

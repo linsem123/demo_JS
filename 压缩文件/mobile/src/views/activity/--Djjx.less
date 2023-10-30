@@ -1,0 +1,217 @@
+@import "~@/assets/less/variable.less";
+.content {
+  min-height: 100vh;
+  margin-top:1rem;
+  width: 100vw;
+  height:100vh;
+  overflow:auto;
+
+  .head-img {
+    width:100%;
+    height:8.1rem;
+    background:url(~@/assets/images/djjx/head.jpg);
+    background-size: cover;
+    position: relative;
+    .head-price {
+      font-size:1.44rem;
+      line-height:1.44rem;
+      color:#ffffff;
+      font-weight:bold;
+      position: absolute;
+      top:2.86rem;
+      left:2.74rem;
+    }
+  }
+
+  .bg-img {
+    display: block;
+    width: 100%;
+  }
+  .main {
+    margin-top:-1px;
+    background: -webkit-linear-gradient(top, #4f00c7 , #4402c8); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(top, #4f00c7, #4402c8); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(top, #4f00c7, #4402c8); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to bottom, #4f00c7 , #4402c8); /* 标准的语法 */
+    .promote-goods-wrap {
+      margin:0.4rem 0 0.6rem 0;
+      .promote-goods-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        .goods-card {
+          &:nth-child(odd).big-goods-card {
+            margin:0;
+            width:6.94rem;
+            height:3.4rem;
+            background:url(~@/assets/images/djjx/big-card.png);
+            background-size: cover;
+            position: relative;
+            .goods-card-img {
+              float: left;
+              width: 2.28rem;
+              height:2.28rem;
+              display: block;
+              margin-top:0.4rem;
+              margin-left:0.64rem;
+              box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+            }
+            .goods-card-info {
+              float: right;
+              width: 2.9rem;
+              margin-top:0.4rem;
+              margin-right:0.56rem;
+              
+              .goods-card-title{
+                font-size:0.28rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;  //这里是在第二行有省略号
+                overflow: hidden;
+                word-break: break-all;
+                word-wrap: break-word;
+              }
+              .goods-card-desc {
+                margin-top:0.2rem;
+                font-size:0.24rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 3;  //这里是在第二行有省略号
+                overflow: hidden;
+                word-break: break-all;
+                word-wrap: break-word;
+              }
+              .goods-card-bottom {
+                position: absolute;
+                bottom:0.3rem;
+                .goods-card-origin-price {
+                  font-size:0.24rem;
+                  color:@font-gray-color;
+                  text-decoration:line-through;
+                }
+                .goods-card-link {
+                  margin-top:0.1rem;
+                  display: block;
+                  width: 2.82rem;
+                  height:0.52rem;
+                  line-height:0.52rem;
+                  font-size:0.38rem;
+                  font-weight:bold;
+                  text-align:center;
+                  color:#ffffff;
+                  background:url(~@/assets/images/djjx/price-tag.png);
+                  background-size: cover;
+                }
+              }
+            }
+          }
+          &:nth-child(odd) {
+            margin:0.2rem 0.46rem;
+            width:1.30rem;
+            height:1.64rem;
+            background:url(~@/assets/images/djjx/price-card-blue.png);
+            background-size: cover;
+            .goods-card-price {
+              font-size:0.44rem;
+              line-height:0.44rem;
+              margin-top:0.35rem;
+              text-align:center;
+              color:#ffffff;
+            }
+            .goods-card-weight {
+              margin-top:0.22rem;
+              font-size:0.24rem;
+              line-height:0.24rem;
+              text-align:center;
+              color:#ffffff;
+            }
+          }
+          &:nth-child(even) {
+            margin:0.2rem 0.46rem;
+            width:1.3rem;
+            height:1.64rem;
+            background:url(~@/assets/images/djjx/price-card-red.png);
+            background-size: cover;
+            .goods-card-price {
+              font-size:0.44rem;
+              line-height:0.44rem;
+              margin-top:0.35rem;
+              text-align:center;
+              color:#ffffff;
+            }
+            .goods-card-weight {
+              margin-top:0.22rem;
+              font-size:0.24rem;
+              line-height:0.24rem;
+              text-align:center;
+              color:#ffffff;
+            }
+          }
+        }
+      }
+    }
+
+    .recommend-goods-wrap {
+      margin-top:0.4rem;
+      padding:0 0.3rem 0.4rem 0.3rem;
+      .recommend-goods-brand {
+        display: flex;
+        justify-content: center;
+        margin-bottom:0.2rem;
+        .recommend-goods-cell {
+          margin:0 0.1rem;
+          .goods-card-top {
+            width:3.35rem;
+            padding:0.24rem 0;
+            // height:2.8rem;
+            background:#ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius:5px 5px 0 0;
+            .goods-card-img {
+              width:2.87rem;
+              height:2.87rem;
+              display: block;
+              box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+            }
+          }
+          .goods-card-bottom {
+            background:#6d5cfc;
+            text-align:center;
+            padding-bottom:0.1rem;
+            border-radius:0 0 5px 5px;
+            .goods-card-title {
+              text-align:center;
+              color:#ffffff;
+              padding:0.1rem 0.3rem;
+              font-size:0.24rem;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 1;  //这里是在第二行有省略号
+              overflow: hidden;
+            }
+            .goods-card-link {
+              // margin-top:0.1rem;
+              display: inline-block;
+              width: 2.82rem;
+              height:0.52rem;
+              line-height:0.52rem;
+              font-size:0.38rem;
+              font-weight:bold;
+              text-align:center;
+              color:#ffffff;
+              background:url(~@/assets/images/djjx/price-tag.png);
+              background-size: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .zhanwei {
+    height:1.2rem;
+  }
+}

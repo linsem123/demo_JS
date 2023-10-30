@@ -1,0 +1,233 @@
+@import "~@/assets/less/variable.less";
+
+.gen-order-withdraw {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+
+  .interest-schema-wrap {
+    padding:0.3rem 0.24rem;
+    background:#ffffff;
+    margin-top:0.16rem;
+    position: relative;
+    &:after {
+      content:"";
+      display: block;
+      position: absolute;
+      height:2px;
+      width: 100%;
+      left: 0;
+      bottom:1px;
+      background-size: contain;
+      background-position-x: -0.3rem;
+      background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALsAAAAECAYAAADWDE7KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1OTcwOWQwMS0yYzM2LTQwOWItYmY2Ny0yM2I2NTMzZWFkYjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDU5RTMyM0IwRjkzMTFFOTg1RTlDRjVDNUQ4NEYxQUEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDU5RTMyM0EwRjkzMTFFOTg1RTlDRjVDNUQ4NEYxQUEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTk3MDlkMDEtMmMzNi00MDliLWJmNjctMjNiNjUzM2VhZGI4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5NzA5ZDAxLTJjMzYtNDA5Yi1iZjY3LTIzYjY1MzNlYWRiOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pl5INjYAAACNSURBVHjaYvz//z8DMeC3BDuMqQLEx4BYlGHwgelAnAVisL74SbFh34+4oQsNCb9z2uyizN9zh5a/OZN3ZRGjkIlEg/mBePMg9fReIM6lofkj1e/Dxt+kJHZmIF4DxBqD0NM3gTgYiP/SyPyR6vdh5W9SEvskIHYZhJ5+A8Q+QPyRhnaMVL8PK38DBBgAo+IqBVW2gFwAAAAASUVORK5CYII=);
+    }
+    .top-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .icon-waitingfill {
+        font-size:0.5rem;
+        color:@font-color-yellow;
+        margin-right:0.24rem;
+      }
+      .schema-info {
+        font-size:0.3rem;
+        line-height:0.4rem;
+        flex:1;
+      }
+      .icon-more {
+        font-size:0.32rem;
+        color:@font-gray-color;
+      }
+    }
+    .tip-text {
+      padding-left:0.74rem;
+      color:@font-gray-color;
+    }
+  }
+
+  .paymenttype-wrap {
+    margin-top: 0.16rem;
+    padding:0 0.24rem;
+    height:1.14rem;
+    background:#ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .paymenttype-title {
+      font-size:0.3rem;
+      font-weight:bold;
+    }
+    .paymenttype-name {
+      font-size: 0.3rem;
+    }
+  }
+
+  .buy-info-wrap {
+    margin-top:0.16rem;
+    background:#ffffff;
+    .expire-time {
+      display: flex;
+      align-items: center;
+      color:@font-gray-color;
+      height:0.62rem;
+      border-bottom:1px solid @border-color;
+      .iconfont {
+        color:@font-color-yellow;
+        margin-left:0.1rem;
+      }
+    }
+  }
+
+  .config-info-wrap {
+    margin-top:0.16rem;
+    padding:0 0.34rem;
+    box-sizing: border-box;
+    background: #ffffff;
+    .config-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding:0.4rem 0;
+      border-bottom:1px solid @border-color;
+      &:last-child {
+        border-bottom:none;
+      }
+      .config-title {
+        font-size:0.3rem;
+      }
+      .config-info {
+        font-size:0.3rem;
+        // color:@font-gray-color;
+        display: flex;
+        align-items: center;
+        .config-text {
+          &.red {
+            color:@red;
+          }
+          &.gray {
+            color:@base-gray-color;
+          }
+        }
+        .iconfont {
+          margin-left:0.1rem;
+          font-size:0.32rem;
+          &.red {
+            color:@red;
+          }
+          &.gray {
+            color:@base-gray-color;
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+  .sum-info-wrap {
+    background:#ffffff;
+    padding:0.4rem 0;
+  }
+
+  .special-specification-wrap {
+    padding:0 0.04rem;
+    .specification-cell {
+      padding:0.3rem 0.1rem;
+      border-bottom:1px solid @border-color;
+      display: flex;
+      align-items: baseline;
+      font-size:0.26rem;
+      &:last-child {
+        border-bottom:none;
+      }
+    }
+  }
+
+
+  .config-wrap {
+    display: flex;
+    justify-content: flex-end;
+    .config-title {
+      font-size:0.28rem;
+      font-weight:bold;
+    }
+    .config-info {
+      display: flex;
+      align-items: center;
+      margin-left:0.24rem;
+      .red {
+        color:@red;
+        font-size:0.3rem;
+      }
+      .config-text {
+        font-size:0.3rem;
+        color:@font-color-yellow;
+      }
+    }
+  }
+
+  .zhanwei {
+    height:2.2rem;
+  }
+
+  .wrapper {
+    text-align: center;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+}
+
+.pay-wrap {
+  position: absolute;
+  z-index:20;
+  bottom:0;
+  width: 100%;
+  .agreement-wrap {
+    height:1rem;
+    background:#ffffff;
+    border-top:1px solid @border-color;
+    padding:0 0.24rem;
+    display: flex;
+    align-items: center;
+    .agreement-text {
+      margin-left:0.24rem;
+      font-size:0.28rem;
+      i {
+        font-style:normal;
+        color:@font-color-yellow;
+      }
+    }
+  }
+  .pay-price-wrap {
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    border-top:1px solid @border-color;
+    align-items: center;
+    .total-price {
+      font-size:0.3rem;
+      padding-left:0.3rem;
+      padding-right:0.1rem;
+      border-right:1px solid @border-color;
+    }
+    .coupon-price {
+      font-size:0.24rem;
+      color:@font-gray-color;
+    }
+    .pay-btn {
+      font-size:0.36rem;
+      font-weight:bold;
+      color:#ffffff;
+      background:@font-color-yellow;
+      text-align:center;
+      width:3.08rem;
+      height:1rem;
+      line-height:1rem;
+    }
+  }
+}

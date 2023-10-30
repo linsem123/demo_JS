@@ -1,0 +1,132 @@
+@import "~@/assets/less/variable.less";
+
+.gen-order-withdraw {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+
+  .adress-info-wrap {
+    margin-top:0.16rem;
+    position: relative;
+    .adress-info-inner {
+      background:#ffffff;
+      width: 100%;
+      box-sizing: border-box;
+      padding:0.3rem 0.4rem;
+      display: flex;
+      .adress-info {
+        margin-left:0.2rem;
+        .adress-info-head {
+          .name {
+            font-size:0.34rem;
+            font-weight:bold;
+          }
+          .phone {
+            font-size:0.34rem;
+            margin-left:0.4rem;
+            font-weight:bold;
+            &.danger {
+              color:@red;
+              font-size:0.28rem;
+              font-weight:normal;
+            }
+          }
+        }
+        .adress {
+          margin-top:0.3rem;
+          margin-right:0.15rem;
+          font-size:0.26rem;
+        }
+      }
+      .iconfont {
+        font-size:0.52rem;
+        &.icon-more {
+          margin-left: auto;
+          align-self: center;
+        }
+        &.icon-dizhi {
+          color:@font-color-yellow;
+        }
+      }
+    }
+    &:after {
+      content:"";
+      display: block;
+      position: absolute;
+      height:2px;
+      width: 100%;
+      left: 0;
+      bottom:1px;
+      background-size: contain;
+      background-position-x: -0.3rem;
+      background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALsAAAAECAYAAADWDE7KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3NpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1OTcwOWQwMS0yYzM2LTQwOWItYmY2Ny0yM2I2NTMzZWFkYjgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDU5RTMyM0IwRjkzMTFFOTg1RTlDRjVDNUQ4NEYxQUEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDU5RTMyM0EwRjkzMTFFOTg1RTlDRjVDNUQ4NEYxQUEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTk3MDlkMDEtMmMzNi00MDliLWJmNjctMjNiNjUzM2VhZGI4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU5NzA5ZDAxLTJjMzYtNDA5Yi1iZjY3LTIzYjY1MzNlYWRiOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pl5INjYAAACNSURBVHjaYvz//z8DMeC3BDuMqQLEx4BYlGHwgelAnAVisL74SbFh34+4oQsNCb9z2uyizN9zh5a/OZN3ZRGjkIlEg/mBePMg9fReIM6lofkj1e/Dxt+kJHZmIF4DxBqD0NM3gTgYiP/SyPyR6vdh5W9SEvskIHYZhJ5+A8Q+QPyRhnaMVL8PK38DBBgAo+IqBVW2gFwAAAAASUVORK5CYII=);
+    }
+  }
+
+  .buy-info-wrap {
+    margin-top:0.16rem;
+    background:#ffffff;
+  }
+
+  .sum-info-wrap {
+    margin:0.25rem 0.2rem;
+    background:#ffffff;
+    padding:0.3rem 0;
+  }
+
+
+  // .config-wrap {
+  //   padding:0.1rem 0.3rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   .config-title {
+  //     font-size:0.28rem;
+  //   }
+  //   .config-info {
+  //     .config-text {
+  //       &.red {
+  //         color:@red;
+  //         font-size:0.3rem;
+  //       }
+  //       text-align:right;
+  //       font-size:0.26rem;
+  //     }
+  //   }
+  // }
+
+  .zhanwei {
+    height:1.4rem;
+  }
+
+  .wrapper {
+    text-align: center;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
+}
+
+.pay-wrap {
+  position: absolute;
+  z-index:20;
+  bottom:0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background: #ffffff;
+  border-top:1px solid @border-color;
+  align-items: center;
+  .pay-btn {
+    font-size:0.36rem;
+    font-weight:bold;
+    color:#ffffff;
+    background:@font-color-yellow;
+    text-align:center;
+    width:100%;
+    height:0.98rem;
+    line-height:0.98rem;
+    &.disable {
+      background:@yellow-disable;
+    }
+  }
+}

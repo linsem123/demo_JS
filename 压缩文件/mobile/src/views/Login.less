@@ -1,0 +1,233 @@
+@import "~@/assets/less/variable.less";
+.right-span {
+  position: absolute;
+  font-size:0.3rem;
+  line-height: 1;
+  right:0.3rem;
+}
+
+@-webkit-keyframes flipY { /*声明动画*/
+  0% {transform: rotateY(0deg);}
+  50%{transform: rotateY(90deg);}
+  100%{transform: rotateY(0deg);}
+}
+@keyframes flipY {
+  0% {transform: rotateY(0deg);}
+  50%{transform: rotateY(90deg);}
+  100%{transform: rotateY(0deg);}
+}
+
+.login-wrap {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  // position: absolute;
+  background: #ffffff;
+
+  .img-banner {
+    width: 100%;
+  }
+
+  .input-content-wrap {
+
+    &.flip {
+      -webkit-animation:0.5s flipY; /*调用动画*/
+      animation:0.5s flipY;
+    }
+
+
+    .logo-wrap {
+      text-align: center;
+      margin-top: 0.64rem;
+      img {
+        display: inline-block;
+        width: 1.5rem;
+      }
+    }
+
+    .info-wrap {
+      margin: 0.5rem 0.44rem;
+      .info-cell {
+        border-bottom: 1px solid @border-color;
+        margin-bottom: 0.46rem;
+        height: 0.9rem;
+        line-height: 0.9rem;
+        &.no-border {
+          border-bottom:none;
+        }
+        .info-cell-content {
+          display: flex;
+          .info-cell-label {
+            width: 1.7rem;
+            font-size: 0.32rem;
+            &.long {
+              width: 2.5rem;
+            }
+          }
+          .info-cell-content-wrap {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            .info-cell-input {
+              font-size: 0.32rem;
+              height: 0.9rem;
+              line-height:0.9rem;
+              width:100%;
+              padding-right:0.3rem;
+              box-sizing: border-box;
+              &:valid:focus {
+                & + .clear-input-btn {
+                  display: block;
+                }
+              }
+              &.captcha {
+                width:4.16rem;
+                height:0.98rem;
+                border: 1px solid @border-color;
+                border-radius: 0.1rem;
+                padding:0 0.3rem;
+                box-sizing: border-box;
+              }
+            }
+            .captcha-btn {
+              width:2.2rem;
+              font-size: 0.3rem;
+              line-height: 0.98rem;
+              height: 0.98rem;
+              text-align: center;
+              color:#ffffff;
+              background:@font-color-yellow;
+              // border: 1px solid @font-color-yellow;
+              border-radius: 0.1rem;
+              &.sending {
+                background:@yellow-disable;
+                border: 1px solid @yellow-disable;
+              }
+            }
+            .iconfont {
+              font-size: 0.46rem;
+              color: @font-gray-color;
+              padding-right:0.26rem;
+              &.icon-yanjing {
+                color: @yellow;
+              }
+              &.clear-input-btn {
+                position: absolute;
+                z-index: 99;
+                font-size: 0.26rem;
+                left: 2.7rem;
+                padding:0;
+                font-size:0.26rem;
+                display: none;
+                box-sizing: border-box;
+              }
+            }
+            .right-text {
+              font-size:0.3rem;
+              line-height:0.36rem;
+              color: @yellow;
+              padding-left: 0.26rem;
+              border-left:1px solid @yellow;
+            }
+            .captcha {
+              width: 1.8rem;
+            }
+          }
+        }
+        .info-error {
+          margin-top: 0.1rem;
+          color: @red;
+          font-size: 0.24rem;
+          line-height: 0.24rem;
+          &.long {
+          }
+        }
+      }
+    }
+
+    .bottom-btn-wrap {
+      margin: 0.9rem 0.3rem 0 0.3rem;
+      .login-btn {
+        display: block;
+        width: 100%;
+        height: 1rem;
+        line-height: 1rem;
+        text-align: center;
+        background: @yellow-disable;
+        color: #ffffff;
+        font-size: 0.36rem;
+        font-weight: bold;
+        border-radius: 0.1rem;
+        &.active {
+          background: @yellow;
+        }
+      }
+    }
+
+    .other-wrap {
+      margin-top: 0.3rem;
+      padding: 0 0.3rem;
+      line-height:0.36rem;
+      color:@font-gray-color;
+      display: flex;
+      justify-content: space-between;
+      .other-btn {
+        color: @yellow;
+        &.big {
+          font-size: 0.3rem;
+        }
+      }
+    }
+
+    .partner-wrap {
+      margin-top:0.5rem;
+      text-align:center;
+      .partner-title {
+        font-size:0.28rem;
+        line-height: 0.28rem;
+        color:#e7ce84;
+        padding:0.3rem 0;
+        position: relative;
+        display: inline-block;
+        font-weight:normal;
+        &:before {
+          display: block;
+          content:"";
+          width: 0.45rem;
+          height:0.02rem;
+          top:50%;
+          left:-0.65rem;
+          margin-top:-0.01rem;
+          position: absolute;
+          background: -webkit-linear-gradient(-90deg, #e9d393 , #f6f5f1); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(-90deg, #e9d393, #f6f5f1); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(-90deg, #e9d393, #f6f5f1); /* Firefox 3.6 - 15 */
+          background: linear-gradient(-90deg, #e9d393 , #f6f5f1); /* 标准的语法 */
+        }
+        &:after {
+          display: block;
+          content:"";
+          width: 0.45rem;
+          height:0.02rem;
+          top:50%;
+          right:-0.65rem;
+          margin-top:-0.01rem;
+          position: absolute;
+          background: -webkit-linear-gradient(90deg, #e9d393 , #f6f5f1); /* Safari 5.1 - 6.0 */
+          background: -o-linear-gradient(90deg, #e9d393, #f6f5f1); /* Opera 11.1 - 12.0 */
+          background: -moz-linear-gradient(90deg, #e9d393, #f6f5f1); /* Firefox 3.6 - 15 */
+          background: linear-gradient(90deg, #e9d393 , #f6f5f1); /* 标准的语法 */
+        }
+      }
+      .partner-img {
+        width:6.2rem;
+        display:block;
+        margin:0 auto;
+      }
+    }
+  }
+
+  
+}
