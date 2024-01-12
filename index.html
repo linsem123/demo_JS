@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+      }
+      .A {
+        background-color: red;
+        height: 300px;
+      }
+      .B {
+        background-color: green;
+        height: 600px;
+        float: right;
+      }
+      .C {
+        background-color: blue;
+        height: 400px;
+      }
+      .box {
+        width: 100%;
+      }
+      .A,
+      .B,
+      .C {
+        width: 50%;
+        display: inline-block;
+      }
+      @media screen and (max-width: 736px) {
+        .A,
+        .B,
+        .C {
+          width: 100%;
+          display: inline-block;
+        }
+        .B {
+          float: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="A">A</div>
+      <div class="B">B</div>
+      <div class="C">C</div>
+    </div>
+  </body>
+</html>

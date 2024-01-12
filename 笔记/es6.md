@@ -80,6 +80,53 @@ console.log(arr,arr1)//[1,2,3,[5]] [1,2,3,[5]]
 不可以使用 arguments 对象，用 rest；不能用做 Generator 函数
 无法使用 call，apply，bind 改变 this 指向
 
+## Promise
+
+是用于处理异步操作的对象
+
+- 手写见 =>手写 promise
+- Promise.all
+  所有的都成功才成功，有一个失败就失败，传入的是数组，反回的也是数组
+  相关面试问题：并发 promise
+  all：所有的都成功才成功，有一个失败就失败，传入的是数组，反回的也是数组
+- Promise.race：竞速 ，有一个成功或失败就返回，返回一个新的 Promise
+
+  相关面试问题：对包裹的 promisr,随时 abort 掉
+
+  ```js
+  //通过闭包，和promise.race实现
+  const wrap = promise => {
+    let _reject;
+    const obj = Promise.race([
+      promise,
+      new Promise((resolve, reject) => {
+        _reject = reject;
+      })
+    ]);
+    obj.abort = () => _reject('abort');
+    return obj;
+
+    const promise = new Promise((resolve, reject) => {
+    setTimeout(() => { resolve("成功了") }, 5000)
+    })
+
+    const a = wrap(promise);
+    a.then(res=>{console.log(res)},err=>{console.log(err)})
+    setTimeout(()=>{a.abort()},2000)
+  ```
+
+- Promise.allSettled：2020 新增，所有的都执行完才返回，返回一个新的 Promise
+- Promise.any：只要有一个成功就成功，所有失败才失败，返回一个新的 Promise
+
+其他：
+控制并发数量
+
+## async await
+
+是用来处理异步操作的语法，使得异步操作按照顺序执行实现代码的同步操作，可以避免回调地狱。
+async 函数 返回 Promise 对象
+await 右侧通常是一个返回 Promise 的表达式
+
 ## 模块化
 
 模块：将大的程序拆分成相互依赖的小文件，再用简单的方法拼装起来。
@@ -108,68 +155,74 @@ export default 匿名函数默认输出，其实就是输出一个叫做 default
 import 的 name 可以是任意的
 
 ```
+
 import {a} from xxx 导入命名
 import a from xxx 导入匿名
+
 ```
 
 ## 类
 
-类是对象的模版  
-类决定了对象中有哪些属性和方法  
+类是对象的模版
+类决定了对象中有哪些属性和方法
 class 定义类
 
 ```
+
 class Person{
-  //类中的代码在严格模式下执行
-  //严格模式-函数的this指向不是window-
-  constructer(name){
-    //构造函数
-    //当通过new创建对象，实际上就是在调用类的constructer
-    //name是创建对象时传入的参数
-    //构造函数中通过this可饮用当前对象
-    this.name = name
-  }
-  fn(){
-    /*类中this指向是不固定的
-    *  方法形式调用this指向当前实例
-    *  函数调用this是undefined
-    * 想要this指向固定
-    *  使用箭头函数
-    */
+//类中的代码在严格模式下执行
+//严格模式-函数的 this 指向不是 window-
+constructer(name){
+//构造函数
+//当通过 new 创建对象，实际上就是在调用类的 constructer
+//name 是创建对象时传入的参数
+//构造函数中通过 this 可饮用当前对象
+this.name = name
+}
+fn(){
+/_类中 this 指向是不固定的
+_ 方法形式调用 this 指向当前实例
+_ 函数调用 this 是 undefined
+_ 想要 this 指向固定
+_ 使用箭头函数
+_/
 
     console.log(this)
-  }
+
+}
 }
 const person = new Person('nick')
 person.fn()// Person
-const _test = person.fn// Person
-_test() // undefined
+const \_test = person.fn// Person
+\_test() // undefined
 
 ```
 
 类的继承
 
 ```
+
 class Animal{
-  constructer(name){
-    this.name = name
-  }
-  hello = ()=>{
-    console.log('hello')
-  }
+constructer(name){
+this.name = name
+}
+hello = ()=>{
+console.log('hello')
+}
 }
 
 //继承父类的所有属性和方法
 class Dog extends Animal{
-  //子类重写构造函数，需要在子类中执行父类的构造函数，否则报错
-  constructer(name){
-    super(name);//调用父类构造函数,调用时有参数需要传参
-  }
-  //子类创建同名的属性或方法会覆盖父类的
-  hello=()=>{
-    console.log('hello dog')
-  }
+//子类重写构造函数，需要在子类中执行父类的构造函数，否则报错
+constructer(name){
+super(name);//调用父类构造函数,调用时有参数需要传参
 }
+//子类创建同名的属性或方法会覆盖父类的
+hello=()=>{
+console.log('hello dog')
+}
+}
+
 ```
 
 原型：
@@ -178,14 +231,16 @@ class Dog extends Animal{
 静态属性和静态方法：直接通过类调用的属性和方法
 
 ```
+
 class Person{
-  static age = 18
-  static fn = () => {
-    console.log(this)//this指向当前类
-  }
+static age = 18
+static fn = () => {
+console.log(this)//this 指向当前类
+}
 }
 console.log(Person.age)
 Person.fn()
+
 ```
 
 ## 数组方法
@@ -194,3 +249,7 @@ map 根据原数组的处理每一项元素返回一个新的数组，原数组�
 filter 返回符合条件的新数组，原数组不改变
 find 返回符合条件的第一项元素
 reduce((prev,curr，currentIndex,array)=>prev+curr,[init]) 数组聚合，初始值-用来指定第一运算的 prev，如不指定从第二个元素开始运算
+
+```
+
+```
