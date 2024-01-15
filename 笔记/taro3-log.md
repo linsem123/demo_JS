@@ -75,6 +75,26 @@ export default definePageConfig({
 
 问题：如何根据不同机型 NavBar 增加的自适应 padding-top，给页面 bg-color 统一增加相应的高度
 
+回答以上问题：
+
+```ts
+const top = Taro.getSystemInfoSync().safeArea?.top || 0; //改方法获取顶部安全高度，导航栏上面状态栏的高度
+const navBarHeight = 88; //NavBar的高度
+if (isWxAgent) {
+  //微信小程序
+  const deviceRatio = 1;
+  const designWidth = Taro.getSystemInfoSync().screenWidth;
+  const rpx = (navBarHeight * deviceRatio * designWidth) / 750;
+  return rpx + top + 'px'; //算上navbar的高度
+} else {
+  //h5 单位为rem
+  const transformed = pxTransform(navBarHeight);
+  const value = parseFloat(transformed);
+  const unit = transformed.replace(value.toString(), '');
+  return value + top + unit;
+}
+```
+
 ### 8/10
 
 - taro-iconfont-cli
