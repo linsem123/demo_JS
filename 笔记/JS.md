@@ -277,11 +277,12 @@ person1.friends.push('lily');
 person1.sayName(); // wxb
 
 let person2 = objectCopy(person);
+console.log(person2.name); //yhd
 person2.name = 'gsr';
 person2.friends.push('kobe');
 person2.sayName(); // "gsr"
 
-console.log(person.friends);
+console.log(person.friends); //["jack", "tom", "rose", "lily", "kobe"]
 //父类方法可复用
 //父类的引用会被所有子类所共享
 //子类实例不能向父类传参
@@ -822,3 +823,59 @@ console.log(newFunctor.value); // 输出 4
   函数式编程的难点/重点 ->如何拆分，编排
 
 ## 发布订阅模式
+
+使用了一个事件通道，发布者发布事件到事件通道，订阅者从事件通道订阅事件，从而实现了发布订阅模式
+
+```js
+class EventChanel {
+  constructor() {
+    this.subscribers = {};
+  }
+  //订阅事件
+  subscribe(event, callback) {
+    if (!this.subscribers[event]) {
+      this.subscribers[event] = [];
+    }
+    this.subscribers[event].push(callback);
+  }
+  //发布事件
+  publish(event) {
+    if (this.subscribers[event]) {
+      this.subscribers[event].forEach(callback => callback());
+    }
+  }
+}
+```
+
+## 观察者模式
+
+一个被观察对象（Subject），一个观察者对象（Observer），被观察对象发生变化时，通知观察者
+
+```js
+class Subject {
+  constructor() {
+    this.observers = [];
+  }
+  addObserver(observer) {
+    this.observers.push(observer);
+  }
+  notifyAllObservers() {
+    this.observers.forEach(observer => observer.update());
+  }
+}
+class Observer {
+  update() {
+    console.log('update');
+  }
+}
+const subject = new Sunject();
+const observer = new Observer();
+subject.addObserver(observer);
+subject.notifyAllObservers();
+```
+
+- 两者区别
+  发布订阅模式，发布者和订阅者不知道对方的存在，通过事件通道进行通信
+  观察者模式，被观察者和观察者知道对方的存在，被观察者发生变化时，通知观察者
+
+- 实际上两者应该是一样的，订阅者通过订阅事件，发布者在事件发生时通知订阅者，订阅者执行回调函数，

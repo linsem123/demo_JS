@@ -5,13 +5,6 @@ view
 model
 viewmodel -数据绑定，DOM 监听
 
-## Vue 的核心
-
-- 声明式渲染 ：使用 HTML 的模版语法，在 HTML 使用 js 表达式，声明式的将数据绑定到 DOM 上
-- 响应式：跟踪 js 状态更新 DOM
-
-## 渐进式框架
-
 ## 选项式 API/组合式 API 区别 怎么选择
 
 选项式 API：组件实例提供了一系列的选项如 methd，computed，watch 来实现组件的逻辑， this 指向当前组件实例，
@@ -43,10 +36,6 @@ nextTick
 - key:1.【就地更新】策略；2.提高渲染效率？
 - v-for in 和 of 在 vue 中是一样的效果
 
-## 触发响应式更新的数组方法
-
-push pop shift unshift splice sort reverse
-
 ## 组件 props
 
 自定义类或构造函数，通过 instanceof 检查类型？
@@ -72,7 +61,7 @@ select 绑定 value 侦听 change 事件
 
 ## 透传 Attribute
 
-在 <script setup> 中使用 useAttrs() API 来访问一个组件的所有透传 attribute：
+在 `<script setup>` 中使用 `useAttrs()` API 来访问一个组件的所有透传 attribute：
 
 ## 插槽
 

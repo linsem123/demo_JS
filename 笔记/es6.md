@@ -105,14 +105,26 @@ console.log(arr,arr1)//[1,2,3,[5]] [1,2,3,[5]]
     ]);
     obj.abort = () => _reject('abort');
     return obj;
+  };
 
-    const promise = new Promise((resolve, reject) => {
-    setTimeout(() => { resolve("成功了") }, 5000)
-    })
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('成功了');
+    }, 5000);
+  });
 
-    const a = wrap(promise);
-    a.then(res=>{console.log(res)},err=>{console.log(err)})
-    setTimeout(()=>{a.abort()},2000)
+  const a = wrap(promise);
+  a.then(
+    res => {
+      console.log(res);
+    },
+    err => {
+      console.log(err);
+    }
+  );
+  setTimeout(() => {
+    a.abort();
+  }, 2000);
   ```
 
 - Promise.allSettled：2020 新增，所有的都执行完才返回，返回一个新的 Promise

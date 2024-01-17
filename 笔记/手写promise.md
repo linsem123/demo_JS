@@ -54,7 +54,7 @@ Promise1.prototype.then = function (onFulfilled, onRejected) {
   }
 };
 
-const p1 = new Promise((resolve, reject) => {
+const p1 = new Promise1((resolve, reject) => {
   setTimeout(() => {
     resolve('成功');
   }, 1000);

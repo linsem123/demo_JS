@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{msg}}
+      <div @click="add">{{count}}</div>
+      <input v-model="msg" />
+    </div>
+    <script>
+      class Vue {
+        constructor(option) {
+          this.$el = document.querySelector(option.el);
+          this.$data = option.data;
+          this.$methods = option.methods;
+          this.$watchEvent = {};
+          this.observor();
+          this.proxyData();
+          this.compile(this.$el);
+        }
+        compile(node) {
+          //解析模板
+          node.childNodes.forEach(item => {
+            // console.log(item, item.nodeType);
+            const type = item.nodeType; //节点类型  1:元素节点 3:文本节点
+            if (type == 3) {
+              // 文本类型，解析模版语法
+              let reg = /\{\{(.*?)\}\}/g;
+              let text = item.textContent;
+              item.textContent = text.replace(reg, (matched, value) => {
+                //watcher队列
+                const attr = value.trim();
+                let watcher = new Watcher(this, attr, item, 'textContent');
+                if (!this.$watchEvent[attr]) {
+                  this.$watchEvent[attr] = [];
+                }
+                this.$watchEvent[attr].push(watcher);
+                return this.$data[attr]; //替换为data中的属性值
+              });
+            } else if (type == 1) {
+              //判断节点属性
+              if (item.hasAttribute('@click')) {
+                const attr = item.getAttribute('@click').trim(); //获得方法值
+                item.addEventListener('click', this.$methods[attr].bind(this)); //绑定事件
+              }
+              if (item.hasAttribute('v-model')) {
+                const attr = item.getAttribute('v-model').trim(); //获得方法值
+                item.value = this[attr]; //将data中的属性值赋值给输入框的value
+                item.addEventListener('input', () => {
+                  this[attr] = item.value; //监听input事件将输入框的值赋值给data中的属性
+                }); //绑定事件
+              }
+              //元素节点，如果包含子节点，递归调用
+              if (item.childNodes.length > 0) {
+                this.compile(item);
+              }
+            }
+          });
+        }
+        //观察者，观察数据是否改变
+        observor() {
+          for (let key in this.$data) {
+            let value = this.$data[key];
+            let _this = this;
+            Object.defineProperty(this.$data, key, {
+              enumerable: true, // 可枚举
+              configurable: true, // 可读写
+              get() {
+                return value;
+              },
+              set(newVal) {
+                value = newVal;
+                //劫持到数据变化，更新视图
+                _this.$watchEvent[key].forEach(item => {
+                  item.update();
+                });
+              }
+            });
+          }
+        }
+        //数据劫持，将data中的属性代理到vue实例上
+        proxyData() {
+          for (let key in this.$data) {
+            Object.defineProperty(this, key, {
+              enumerable: true, // 可枚举
+              configurable: true, // 可读写
+              get() {
+                return this.$data[key];
+              },
+              set(newVal) {
+                this.$data[key] = newVal;
+              }
+            });
+          }
+          console.log(this);
+        }
+      }
+      //视图图更新
+      class Watcher {
+        constructor(vm, key, node, attr) {
+          this.vm = vm;
+          this.key = key;
+          this.node = node;
+          this.attr = attr;
+        }
+        update() {
+          this.node[this.attr] = this.vm[this.key];
+        }
+      }
+      new Vue({
+        el: '#app',
+        data: { msg: 'hello', count: 0 },
+        methods: {
+          add() {
+            console.log('count:', this.count++);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
