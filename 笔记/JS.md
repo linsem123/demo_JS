@@ -1,3 +1,28 @@
+## js 语言设计的优点和缺点
+
+JavaScript 可以看作是 ECMAScript、DOM 和 BOM 的集合。
+
+1. ECMAScript：这是 JavaScript 的核心，定义了语言的语法和基本对象。
+
+2. Document Object Model (DOM)：这是一个平台和语言中立的接口，允许程序和脚本动态地访问和更新文档的内容、结构和样式。
+
+3. Browser Object Model (BOM)：允许 JavaScript 与浏览器进行交互。
+
+优点：
+
+1. 脚本语言，在浏览器可以直接运行，不需要编译，可以直接在浏览器运行，方便开发者快速开发和调试
+2. 弱类型语言，不需要声明变量类型，代码编写更灵活，但是也容易导致错误
+3. 跨平台特性，可以在多环境运行，包括浏览器、服务器、 移动端
+4. 强大的客户端交互性能。因为它能够直接嵌入 HTML 和 CSS，因此可以轻松地实现动态交互效果，增强用户体验。
+5. 扩展性 各种可重用的库和框架
+
+缺点：
+
+1. 兼容性问题。不同的浏览器支持不同的 JavaScript 版本和功能
+2. 在浏览器可以直接运行，也容易受到恶意攻击，例如跨站点脚本攻
+3. 性能问题，例如在处理大量数据或要求极高的计算方面
+4. 弱类型语言，但是也容易导致错误
+
 ## JS 的执行-两个阶段
 
 - 预编译：  
@@ -54,7 +79,7 @@ foo();
 console.log(a); //2
 ```
 
-## 作用域：是根据变量名查找变量的规则
+## 作用域：是根据变量名查找变量的规则/定义了变量作用范围的一套规则，它决定了代码区块中变量的可见性
 
 全局作用域，函数作用域，块级作用域
 
@@ -414,7 +439,7 @@ class 继承的时候可以继承静态属性和方法
 
 class 是严格模式
 
-### ==和！类型转换
+## ==和！类型转换
 
 ==的隐式转换规则，两边类型不一致时，会将两边的类型转换为 Number 类型，再进行比较
 
@@ -480,6 +505,9 @@ console.log(b); //String {"1"}
 const c = [];
 c instanceof Array; //true
 c instanceof Object; //true
+
+const b = 5;
+b.__proto__ == Number.prototype;
 ```
 
 - Object.prototype.toString.call() 用于判断引用类型，可以区分数组、对象、null
@@ -879,3 +907,154 @@ subject.notifyAllObservers();
   观察者模式，被观察者和观察者知道对方的存在，被观察者发生变化时，通知观察者
 
 - 实际上两者应该是一样的，订阅者通过订阅事件，发布者在事件发生时通知订阅者，订阅者执行回调函数，
+
+## Array reduce/reduceRight
+
+接收一个函数为累加器，数组中的每个值（从左到右）开始合并，最终为一个值
+
+## call aply bind
+
+改变 this 的指向，call 可以直接写多个参数，apply 需要用数组方式传递
+call、 aply 立即执行 ，bind 返回一个函数，需要调用才会执行
+option1:this
+call 、bind 可以传递多个参数，aply 多个参数用数组方式传递
+
+## 宏任务和微任务/事件循环（eventLoop）
+
+同步和异步：
+同步：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务
+异步：不进入主线程，而进入任务队列的任务，主线程任务执行完毕会从任务队列中调用一个异步任务进入主线程执行，
+
+先同步任务再异步任务
+异步任务分为宏任务和微任务，先微任务最后宏任务
+同步任务>微任务>宏任务
+
+宏任务 ：宏任务的时间粒度比较大，执行的时间间隔是不能精确控制的，对一些高实时性的需求就不太符合
+1、定时器任务： 如 setTimeout、setInterval
+2、I/O 任务：例如网络请求、文件读写等需要进行 I/O 操作的任务
+3、用户交互任务：例如点击事件、输入事件等与用户交互的相关任务
+4、渲染任务：当浏览器需要重绘或重新布局时触发的任务
+
+微任务：一个需要异步执行的函数，执行时机是在主函数执行结束之后、当前宏任务结束之前
+Promise.then()、await 后面的代码、MutationObserver 回调：当 DOM 发生变化时触发的回调函数
+
+宏任务里的异步任务怎么执行的：
+宏任务执行完毕后，会检查微任务队列，如果有微任务，就会执行微任务，直到微任务队列为空，然后再执行下一个宏任务
+
+事件循环：事件循环的机制确保了 JavaScript 中异步代码的顺序性和可预测性。
+
+```js
+console.log('script start');
+
+setTimeout(function () {
+  console.log('setTimeout');
+  Promise.resolve().then(function () {
+    console.log('promise3');
+  });
+  setTimeout(function () {
+    console.log('setTimeout1');
+  }, 0);
+}, 0);
+setTimeout(function () {
+  console.log('setTimeout2');
+  Promise.resolve().then(function () {
+    console.log('promise4');
+  });
+  setTimeout(function () {
+    console.log('setTimeout3');
+  }, 0);
+}, 0);
+Promise.resolve()
+  .then(function () {
+    console.log('promise1');
+  })
+  .then(function () {
+    console.log('promise2');
+  });
+
+console.log('script end');
+//script start
+//script end
+//promise1
+//promise2
+// setTimeout
+//promise3
+// setTimeout2
+// promise4
+//setTimeout1
+// setTimeout3
+```
+
+## 深浅拷贝
+
+实现深拷贝：创建一个新的对象，然后递归地复制原始对象的所有嵌套对象和元素，而不仅仅是复制它们的引用
+JSON.stringfy 缺点不能拷贝函数
+
+```js
+const originObj = {
+  a: 1,
+  b: [1, 2, [3, 4, [5]]],
+  c: {
+    d: 1,
+    e: { f: 'a' }
+  },
+  g: function () {
+    console.log('g');
+  }
+};
+
+const deepClone = obj => {
+  if (typeof obj !== 'object' || obj == null) return obj;
+  let newObj;
+  if (typeof obj == 'function') {
+    newObj = obj;
+  } else {
+    //数组或对象
+    newObj = Array.isArray(obj) ? [] : {};
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        //不是原型链上继承的属性
+        newObj[key] = deepClone(obj[key]);
+      }
+    }
+  }
+
+  return newObj;
+};
+console.log(deepClone(originObj));
+```
+
+实现浅拷贝：浅拷贝是指创建一个新对象，然后将原始对象的元素（或引用）复制到新对象中，但是新对象中的元素仍然是对原始对象元素的引用。浅拷贝只会复制原始对象的一层结构，而不会递归复制嵌套对象的内部结构。
+
+1. 扩展运算符
+2. Object.assign
+
+## 垃圾回收机制
+
+垃圾产生：创建一个基本类型、对象、函数……都是需要占用内存的，内存由浏览器的引擎分配，当不再使用这些内存时，就需要将其释放掉，这些不再使用的内存就是垃圾
+
+JavaScript 垃圾回收机制的原理就是定期找出那些不再用到的内存（变量），然后释放其内存
+
+- 标记清除算法
+
+1. 垃圾收集器在运行时会给内存中的所有变量都加上一个标记，假设内存中所有对象都是垃圾，全标记为 0
+2. 然后从各个根对象开始遍历，把不是垃圾的节点改成 1
+3. 清理所有标记为 0 的垃圾，销毁并回收它们所占用的内存空间
+4. 最后，把所有内存中对象标记修改为 0，等待下一轮垃圾回收
+
+缺点：会导致内存空间不连续碎片化
+
+- 引用计数算法
+
+1.  当声明了一个变量并且将一个引用类型赋值给该变量的时候这个值的引用次数就为 1
+2.  如果同一个值又被赋给另一个变量，那么引用数加 1
+3.  如果该变量的值被其他的值覆盖了，则引用次数减 1
+4.  当这个值的引用次数变为 0 的时候，说明没有变量在使用，这个值没法被访问了，回收空间，垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的内存
+    缺点：需要计数器；如果变量之间互相引用，不会被回收，可能会造成内存泄漏
+
+- V8 优化 分代式垃圾回收
+  分为老生代和新生代
+  新生代：存活时间短，垃圾回收频繁
+  老生代：占用空间大，存活时间长的，垃圾回收不频繁，采用标记清除算法
+  新生代分为：使用区和空闲区，
+  使用区，当使用区快被写满时，就需要执行一次垃圾清理操作
