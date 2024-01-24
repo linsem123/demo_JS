@@ -33,7 +33,7 @@ arr.push(1); //增加越界的元素，会使用联合类型替代
 
 - 枚举
 
-一组有名字的常量集合
+可以看作是一组有名字的常量集合
 
 ```ts
 // 数字类型枚举，默认从0开始，依次递增
@@ -574,6 +574,36 @@ function getLength<T extends ILength>(val: T): number {
 getLength(1223); //error number类型不存在length属性
 getLength([1, 2]); //error number类型不存在length属性
 ```
+
+## 模块/命名空间
+
+TS1.5 之前使用内部模块，1.5 之后使用命名空间，“外部模块”现在则简称为“模块",与 ES6 保持一致
+
+- 导出声明
+  任何声明（比如变量，函数，类，类型别名或接口）都能够通过添加 export 关键字来导出
+
+  ```ts
+  export interface StringValidator {
+    isAcceptable(s: string): boolean;
+  }
+  export { StringValidator as IStringValidator }; //导出重命名
+  ```
+
+- 重新导出
+
+  ```ts
+  export { ZipCodeValidator as RegExpBasedZipCodeValidator } from './ZipCodeValidator';
+
+  //一个模块可以包裹多个模块，并把他们导出的内容联合在一起
+  export * from './StringValidator'; //导出所有
+  export * from './LettersOnlyValidator'; //导出所有
+  ```
+
+- 默认导出
+  `export default` 可以用来为模块指定默认输出，一个模块只能有一个默认导出
+- 导入
+
+- declare 关键字用于声明变量类型，使用一些在 TS 中没有定义的 JS 库
 
 ## 装饰器
 

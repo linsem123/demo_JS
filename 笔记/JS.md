@@ -1,3 +1,19 @@
+keyword：
+
+1. js 语言设计的优点和缺点
+2. JS 的执行
+3. 变量如何赋值
+4. 作用域
+5. 闭包
+6. this
+7. 面向对象/原型/原型链/继承
+8. 类型转换
+9. 模块化
+10. 浏览器/ 宏任务和微任务/事件循环/垃圾回收机制/缓存/网络/储存/跨域
+11. 函数式编程
+12. 发布订阅模式/观察者模式
+13. 深浅拷贝
+
 ## js 语言设计的优点和缺点
 
 JavaScript 可以看作是 ECMAScript、DOM 和 BOM 的集合。
@@ -196,7 +212,7 @@ Array.prototype.slice.call(arguments,1) 或[].slice.call(arguments,1)将具有 l
 arguments 是类数组对象，没有数组的方法，所以需要借用数组的方法
 slice 方法用于数组返回的是数组，用于字符串返回的是字符串，arguments 转为数组第二个元素开始才是参数，所以需要截取
 
-## 继承
+### 继承
 
 继承：利用原型让一个引用类型继承另一个引用类型的属性和方法
 
@@ -519,11 +535,11 @@ b.__proto__ == Number.prototype;
 
 IIFE 是语法基础
 
-1.文件分离
+1. 文件分离
 
-面试问题：scripe 标签参数 defer 和 async 区别
+面试问题：异步引入 js 的方式/scripe 标签参数 defer 和 async 区别
 
-- normal：代码一行一行的解析，script 标签，下载文件，下载完成立刻解析，解析完成后再下载下一个文件，如果文件很大，会阻塞页面的渲染，所以一般放在 body 标签底部
+- normal：代码一行一行的解析，script 标签，下载文件，下载完成立刻解析，解析完成后再下载- 下一个文件，如果文件很大，会阻塞页面的渲染，所以一般放在 body 标签底部
 - async：解析到标签，开始异步下载，下载完成后立刻解析，还是会阻塞主线程
 - defer ： 解析到标签，开始异步下下载，同时继续解析，解析完成后再执行，如果有多个 defer 标签，会按照顺序执行
 
@@ -531,8 +547,8 @@ async 和 defer 不同浏览器的兼容性问题
 
 面试问题方向：浏览器怎么执行渲染等浏览器原理、同步异步原理、模块化加载原理
 
-2.解决命名冲突
-IIFE 立即执行函数，将代码放在一个函数中，形成一个单独的作用域，避免命名冲突
+2. 解决命名冲突
+   IIFE 立即执行函数，将代码放在一个函数中，形成一个单独的作用域，避免命名冲突
 
 ```js
 const module = (function () {
@@ -703,6 +719,32 @@ import('a.js').then(dynamicESModule => {
 });
 ```
 
+### 模块化面试问题
+
+1. 请解释一下 JavaScript 的模块化以及它的重要性。
+   拆分文件->方便维护，命名空间->避免命名冲突，按照功能拆分->复用
+2. 请解释 CommonJS、AMD、UMD 和 ES6 模块的区别。
+   CommonJS：node.j 规范，同步加载，就近依赖，可按需加载
+   AMD：浏览器环境规范，异步加载，依赖前置
+   UMD：使得一个模块可以在多种环境运行，兼容 AMD 和 CommonJS
+   ES6：ES6 引入的规范，静态导入和导出，只能在顶层使用，不可以在代码块或函数中导入
+3. 如何在浏览器中使用 CommonJS 模块？
+   打包工具
+4. 请解释一下 `require`、`exports`、`module.exports` 在 Node.js 中的作用。
+   require：导入，但会一个模块的 exports 对象
+   exports 和 module.exports：导出
+5. 请解释一下 `import` 和 `export` 在 ES6 模块中的作用。
+6. 请解释一下动态导入 (`import()`) 在 ES6 模块中的作用和使用场景。
+   运行时动态导入：使得可以按需加载
+7. 如何将一个 CommonJS 模块转换为 ES6 模块？
+   module.exports -> export
+   require -> import
+8. 请解释一下循环依赖是什么，以及如何解决循环依赖的问题。
+   a 依赖 b，b 依赖 a
+   ？？？？ 解决：避免或者使用异步导入，
+9. 请解释一下 JavaScript 的模块加载器和打包工具，例如 RequireJS、Browserify、Webpack 等。
+   都是用来管理和打包 JS 模块的工具
+
 ## stopImmediatePropagation 阻止当前元素的其他事件处理程序被调用
 
 ## for
@@ -722,8 +764,6 @@ for (let key in new Child()) {
 ```
 
 - for of 遍历可迭代对象的值(数组、字符串、Set、Map、arguments)
-
-## 浏览器
 
 ## 函数式编程
 
@@ -850,7 +890,9 @@ console.log(newFunctor.value); // 输出 4
 - 面试问题
   函数式编程的难点/重点 ->如何拆分，编排
 
-## 发布订阅模式
+## 设计模式
+
+### 发布订阅模式
 
 使用了一个事件通道，发布者发布事件到事件通道，订阅者从事件通道订阅事件，从而实现了发布订阅模式
 
@@ -875,7 +917,7 @@ class EventChanel {
 }
 ```
 
-## 观察者模式
+### 观察者模式
 
 一个被观察对象（Subject），一个观察者对象（Observer），被观察对象发生变化时，通知观察者
 
@@ -919,7 +961,57 @@ call、 aply 立即执行 ，bind 返回一个函数，需要调用才会执行
 option1:this
 call 、bind 可以传递多个参数，aply 多个参数用数组方式传递
 
-## 宏任务和微任务/事件循环（eventLoop）
+## 深浅拷贝
+
+实现深拷贝：创建一个新的对象，然后递归地复制原始对象的所有嵌套对象和元素，而不仅仅是复制它们的引用
+JSON.stringfy 缺点不能拷贝函数
+
+```js
+const originObj = {
+  a: 1,
+  b: [1, 2, [3, 4, [5]]],
+  c: {
+    d: 1,
+    e: { f: 'a' }
+  },
+  g: function () {
+    console.log('g');
+  }
+};
+
+const deepClone = obj => {
+  if (typeof obj !== 'object' || obj == null) return obj;
+  let newObj;
+  if (typeof obj == 'function') {
+    newObj = obj;
+  } else {
+    //数组或对象
+    newObj = Array.isArray(obj) ? [] : {};
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        //不是原型链上继承的属性
+        newObj[key] = deepClone(obj[key]);
+      }
+    }
+  }
+
+  return newObj;
+};
+console.log(deepClone(originObj));
+```
+
+实现浅拷贝：浅拷贝是指创建一个新对象，然后将原始对象的元素（或引用）复制到新对象中，但是新对象中的元素仍然是对原始对象元素的引用。浅拷贝只会复制原始对象的一层结构，而不会递归复制嵌套对象的内部结构。
+
+1. 扩展运算符
+2. Object.assign
+
+## 浏览器
+
+### 渲染原理
+
+### 储存
+
+### 宏任务和微任务/事件循环（eventLoop）
 
 同步和异步：
 同步：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务
@@ -985,51 +1077,53 @@ console.log('script end');
 // setTimeout3
 ```
 
-## 深浅拷贝
-
-实现深拷贝：创建一个新的对象，然后递归地复制原始对象的所有嵌套对象和元素，而不仅仅是复制它们的引用
-JSON.stringfy 缺点不能拷贝函数
-
 ```js
-const originObj = {
-  a: 1,
-  b: [1, 2, [3, 4, [5]]],
-  c: {
-    d: 1,
-    e: { f: 'a' }
-  },
-  g: function () {
-    console.log('g');
+{
+  async function a() {
+    console.log('a1');
+    await b();
+    await c();
+    console.log('a2');
   }
-};
-
-const deepClone = obj => {
-  if (typeof obj !== 'object' || obj == null) return obj;
-  let newObj;
-  if (typeof obj == 'function') {
-    newObj = obj;
-  } else {
-    //数组或对象
-    newObj = Array.isArray(obj) ? [] : {};
-    for (let key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        //不是原型链上继承的属性
-        newObj[key] = deepClone(obj[key]);
-      }
-    }
+  async function b() {
+    console.log('b');
+  }
+  function c() {
+    return new Promise((resolve, reject) => {
+      console.log('c1');
+      resolve();
+    }).then(() => {
+      console.log('c2');
+    });
   }
 
-  return newObj;
-};
-console.log(deepClone(originObj));
+  console.log('start');
+  a();
+  setTimeout(() => {
+    console.log('timeout');
+  }, 0);
+  new Promise((resolve, reject) => {
+    console.log('p1');
+    resolve();
+  }).then(() => {
+    console.log('p2');
+  });
+
+  console.log('end');
+}
+// start;
+// a1;
+// b;
+// p1;
+// end;
+// c1;
+// p2;
+// c2;
+// a2;
+// timeout
 ```
 
-实现浅拷贝：浅拷贝是指创建一个新对象，然后将原始对象的元素（或引用）复制到新对象中，但是新对象中的元素仍然是对原始对象元素的引用。浅拷贝只会复制原始对象的一层结构，而不会递归复制嵌套对象的内部结构。
-
-1. 扩展运算符
-2. Object.assign
-
-## 垃圾回收机制
+### 垃圾回收机制
 
 垃圾产生：创建一个基本类型、对象、函数……都是需要占用内存的，内存由浏览器的引擎分配，当不再使用这些内存时，就需要将其释放掉，这些不再使用的内存就是垃圾
 
@@ -1058,3 +1152,80 @@ JavaScript 垃圾回收机制的原理就是定期找出那些不再用到的内
   老生代：占用空间大，存活时间长的，垃圾回收不频繁，采用标记清除算法
   新生代分为：使用区和空闲区，
   使用区，当使用区快被写满时，就需要执行一次垃圾清理操作
+
+### 网络
+
+TCP/IP 网络协议
+TCP 连接 3 次握手 四次挥手
+
+http1.0 http1.1 http2.0=>  
+keep-alive 保持 tcp 连接，不用反复创建连接
+http2.0=>多路复用，一个连接可以并发多个请求，解决了队头阻塞问题->chrome 最多同时发送 6 个请求
+
+状态： http 无状态，TCP 有状态
+TCP 优化点：socket 连接，封装 TCP，方便应用和调用？？？？
+
+SSL 安全协议
+https 加密传输，会延长连接时间
+优化： 和并请求 + 长连接
+
+### 缓存
+
+HTTP 缓存分为强缓存和协商缓存
+
+强缓存请求头：
+
+expires ：源指定缓存到期 GMT 的绝对时间
+cache-control：弥补 Expires 的缺陷而加入的，
+Cache-Control 优先级高于 Expires
+max-age：缓存的最大有效时间，单位秒
+no-cache：不使用本地缓存，需要使用协商缓存
+no-store：不缓存，使用协商缓存
+
+协商缓存请求头：
+last-modified (if-modified-since) -> http 1.0
+Etag(if-none-match) -> http 1.1
+
+last-modified
+浏览器在请求服务器资源时，服务器会将文件的最后修改时间，赋值给相应求头 last-modified
+Etag
+Etag 其实和 last-modified 的效果一样，都是后端针对相应的资源，返回的一个标识，只是 last-modified 是资源最后的修改时间，etag 是资源相应的标识，不同的服务器生成 etag 的策略是不一样的
+
+etag 为什么会优先于 last-modified
+
+浏览器缓存的工作流程：
+
+1. 浏览器首先检查资源的内存缓存，如果资源存在于内存中且未过期，就会直接使用它。
+2. 如果资源不在内存缓存中，浏览器会检查磁盘缓存，如果资源存在于磁盘缓存中且未过期，就会加载并存储到内存缓存中，然后使用。
+3. 如果资源既不在内存缓存也不在磁盘缓存中，浏览器会向服务器发出请求来获取资源。
+4. 服务器返回资源后，浏览器会根据响应头的缓存控制信息来存储资源到内存缓存和磁盘缓存中，以备将来使用。
+
+### web workers
+
+运行在后台线程中，不会阻塞主线程，适合做一些耗时或复杂计算的工作
+不能访问 DOM （也包括 css）或者全局变量，只可以通过 `postMessage`和 `onmessage` 通信
+
+```js
+const worker = new Worker(path, options);
+//path: worker 的脚本路径
+```
+
+### 跨域
+
+#### 面试问题：浏览器从输入 URL 到页面渲染的过程
+
+1. 浏览器根据 DNS 服务器得到域名的 IP 地址
+   域名解析： 浏览器缓存->系统缓存->路由器缓存->ISP DNS 缓存->根域名服务器  
+   优化点：CDN
+2. 向这个 IP 的机器发送 HTTP 请求
+3. 服务器收到、处理并返回 HTTP 请求
+4. 浏览器得到返回内容
+5. 浏览器进行 HTML 解析，建立 DOM 树
+6. 浏览器进行 CSS 解析，建立 CSSOM 树
+7. 将 DOM 和 CSSOM 组合成一个渲染树
+8. 如果遇到 script 标签，会执行并阻塞渲染
+9. 根据渲染树来布局，计算每个节点的位置
+10. 调用 GPU 绘制，合成图层，显示在屏幕上
+11. 监听事件，执行绑定的回调函数
+
+## 线程/进程/队列

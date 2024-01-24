@@ -190,8 +190,18 @@ woff2-与 woff 采用的压缩技术不一样，压缩效果更好，兼容较�
  //取子集
  $ fonttools subset "$input_file" --text-file="$text_file" --output-file="$output_file"
  //压缩
-$ fonttools ttLib.woff2 compress "$input_file" -o "$output_file"
+ $ fonttools ttLib.woff2 compress "$input_file" -o "$output_file"
 
+```
+
+taro 远程获取字体包
+
+```js
+Taro.loadFontFace({
+  global: true,
+  family: 'SourceHanSerif Medium',
+  source: 'url("https://www.51wbxz.com/font/SourceHanSerifCN-Medium.woff2")'
+});
 ```
 
 ### 8/15
@@ -259,6 +269,11 @@ canvas 设置画布尺寸=包裹的 View 的宽高，
   </View>
 </View>
 ```
+
+2024/1/24 update
+以上问题出现在开发者工具上，真机不会出现
+`npm run dev:weapp` 后无论是开发者工具还是真机 canvas 是在最上层，无法通过 z-index 设置层级，会覆盖 pop 弹窗等
+但是`npm run build:weapp`后，就没有这个问题了
 
 ### 10/27
 
@@ -330,6 +345,9 @@ canvas 设置画布尺寸=包裹的 View 的宽高，
      })
   .exec()
 ```
+
+2024/1/24 update
+canvas 在开发者工具上设置`display:none`可以正常生成图片，但是在真机上会报错
 
 - ScrollVIew 通过 scrollIntoView 滚动到指定元素，H5 端纵向滚动 scrollY 设置 scrollIntoViewAlignment="start"不生效，一直是滚到元素在视口居中位置
 
@@ -679,3 +697,49 @@ const setNicknameHandle = e => {
 </Form>
 
 ```
+
+- 退出登录，清除缓存
+  `Taro.checkSession` 校验 session_key 是否过期，过期则调用 `Taro.login` 获取新的 session_key
+
+如果调用后端登录接口失败->重新点击登录按钮->Taro.checkSession->这时候 session_key 未过期->不走登录逻辑
+没有清除 session_key 的方法，但是可以通过调用 wx.login() 获取新的 session_key
+所以去掉 Taro.checkSession()，直接每次登录调用 wx.login()，获取新的 session_key
+
+```js
+Taro.checkSession(success:()=>{
+  //session_key未过期
+},fail:()=>{
+  //session_key过期
+  Taro.login({
+    success:()=>{
+      //登录成功
+
+      //调用后端登录接口
+      Taro.request({
+        url: 'https://test.com/onLogin',
+        data: {
+          code: res.code
+        }
+      })
+    },
+    fail:()=>{
+      //登录失败
+    }
+  })
+})
+```
+
+- 2024/1/24
+
+  ```css
+  .body {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+  ```
+
+  ```js
+  const { pixelRatio, screenWidth, safeArea } = Taro.getSystemInfoSync();
+  //safeArea.top 顶部安全区域的高度
+  //pixelRatio 屏幕像素比
+  //screenWidth 屏幕宽度
+  ```
